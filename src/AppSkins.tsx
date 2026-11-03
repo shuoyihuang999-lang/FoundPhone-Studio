@@ -167,8 +167,8 @@ function MomentCard({ p, item }: { p: SkinProps; item: Item }) {
           </button>
           <small>{item.time}</small>
           <div className="wx-moment-social">
-            <button aria-pressed={liked} onClick={() => { setLiked(!liked); recordStudyEvent(p as never, liked ? "unlike" : "like", item); }}>♥ {item.likes + (liked ? 1 : 0)}</button>
-            <button onClick={() => { recordStudyEvent(p as never, "comments_open", item); p.onItem(item); }}>评论 {item.comments.length}</button>
+            <button aria-pressed={liked} onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}>♥ {item.likes + (liked ? 1 : 0)}</button>
+            <button onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>评论 {item.comments.length}</button>
           </div>
         </div>
       </div>
