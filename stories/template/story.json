@@ -1,14 +1,14 @@
 {
   "scriptVersion": 1,
-  "id": "ui-test-phone-v2",
-  "title": "捡手机",
-  "description": "仅用于界面测试，不含剧情",
-  "revision": 2,
+  "id": "social-life-comparison",
+  "title": "屏幕里的生活",
+  "description": "课堂沉浸式社交媒体体验。所有账号、动态、聊天和互动均为虚构模拟数据。",
+  "revision": 3,
   "phone": {
-    "owner": "机主",
-    "date": "2026-10-25",
-    "time": "09:41",
-    "battery": 94,
+    "owner": "林同学",
+    "date": "2026-11-03",
+    "time": "19:42",
+    "battery": 86,
     "network": "5G",
     "wallpaper": "apple-wwdc26"
   },
@@ -36,15 +36,6 @@
     "messages",
     "contacts",
     "photos",
-    {
-      "id": "camera",
-      "name": "相机",
-      "installed": true,
-      "visible": true,
-      "dock": true,
-      "folder": "",
-      "icon": ""
-    },
     "safari",
     "notes",
     "calendar",
@@ -85,611 +76,1949 @@
     "netflix",
     "pinterest",
     "threads",
-    "kakao"
+    "kakao",
+    {
+      "id": "insights",
+      "name": "浏览画像",
+      "installed": true,
+      "visible": true,
+      "dock": false,
+      "folder": "",
+      "icon": ""
+    }
   ],
   "contacts": [
     {
-      "id": "test-contact",
-      "name": "测试联系人",
+      "id": "wx-friend-0",
+      "name": "保研成功的A",
       "phone": "",
-      "bio": "这是一条测试内容。"
+      "bio": "高中同学A"
+    },
+    {
+      "id": "wx-friend-1",
+      "name": "大厂Offer的B",
+      "phone": "",
+      "bio": "室友小B"
+    },
+    {
+      "id": "wx-friend-2",
+      "name": "恋爱幸福的C",
+      "phone": "",
+      "bio": "朋友小C"
+    },
+    {
+      "id": "wx-friend-3",
+      "name": "旅行中的D",
+      "phone": "",
+      "bio": "旅行搭子D"
+    },
+    {
+      "id": "wx-friend-4",
+      "name": "求职失败的E",
+      "phone": "",
+      "bio": "同学小E"
+    },
+    {
+      "id": "wx-friend-5",
+      "name": "考研失败的F",
+      "phone": "",
+      "bio": "备考搭子F"
+    },
+    {
+      "id": "wx-friend-6",
+      "name": "加班吐槽的G",
+      "phone": "",
+      "bio": "前同事G"
+    },
+    {
+      "id": "wx-friend-7",
+      "name": "新手妈妈的H",
+      "phone": "",
+      "bio": "表姐H"
     }
   ],
   "chats": [
     {
-      "id": "test-chat-messages",
-      "app": "messages",
-      "title": "测试会话",
-      "participants": [
-        "owner",
-        "test-contact"
-      ],
-      "messages": [
-        {
-          "id": "test-message-messages",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-wechat",
+      "id": "wx-chat-0",
       "app": "wechat",
-      "title": "测试会话",
+      "title": "保研成功的A",
       "participants": [
         "owner",
-        "test-contact"
+        "wx-friend-0"
       ],
       "messages": [
         {
-          "id": "test-message-wechat",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-qq",
-      "app": "qq",
-      "title": "测试会话",
-      "participants": [
-        "owner",
-        "test-contact"
-      ],
-      "messages": [
-        {
-          "id": "test-message-qq",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-whatsapp",
-      "app": "whatsapp",
-      "title": "测试会话",
-      "participants": [
-        "owner",
-        "test-contact"
-      ],
-      "messages": [
-        {
-          "id": "test-message-whatsapp",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-telegram",
-      "app": "telegram",
-      "title": "测试会话",
-      "participants": [
-        "owner",
-        "test-contact"
-      ],
-      "messages": [
-        {
-          "id": "test-message-telegram",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-discord",
-      "app": "discord",
-      "title": "测试会话",
-      "participants": [
-        "owner",
-        "test-contact"
-      ],
-      "messages": [
-        {
-          "id": "test-message-discord",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-line",
-      "app": "line",
-      "title": "测试会话",
-      "participants": [
-        "owner",
-        "test-contact"
-      ],
-      "messages": [
-        {
-          "id": "test-message-line",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-messenger",
-      "app": "messenger",
-      "title": "测试会话",
-      "participants": [
-        "owner",
-        "test-contact"
-      ],
-      "messages": [
-        {
-          "id": "test-message-messenger",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-kakao",
-      "app": "kakao",
-      "title": "测试会话",
-      "participants": [
-        "owner",
-        "test-contact"
-      ],
-      "messages": [
-        {
-          "id": "test-message-kakao",
-          "body": "这是一条测试消息。",
-          "senderId": "test-contact"
+          "id": "wx-chat-0-msg-0",
+          "body": "啊啊啊终于收到拟录取通知了！这几年没白熬！",
+          "senderId": "wx-friend-0",
+          "time": "2026-11-03 09:10",
+          "kind": "text",
+          "meta": {}
         },
         {
-          "id": "test-reply-kakao",
-          "body": "这是一条测试回复。",
-          "senderId": "owner"
+          "id": "wx-chat-0-msg-1",
+          "body": "你也太厉害了，哪个学校呀？",
+          "senderId": "owner",
+          "time": "2026-11-03 09:17",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-0-msg-2",
+          "body": "是本校直博方向，昨天晚上才确认。",
+          "senderId": "wx-friend-0",
+          "time": "2026-11-03 09:24",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-0-msg-3",
+          "body": "我妈比我还激动，刚刚已经在家族群发了三遍。",
+          "senderId": "owner",
+          "time": "2026-11-03 09:31",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-0-msg-4",
+          "body": "谢谢你！等我回去请你吃饭。",
+          "senderId": "wx-friend-0",
+          "time": "2026-11-03 09:38",
+          "kind": "text",
+          "meta": {}
+        }
+      ]
+    },
+    {
+      "id": "wx-chat-1",
+      "app": "wechat",
+      "title": "大厂Offer的B",
+      "participants": [
+        "owner",
+        "wx-friend-1"
+      ],
+      "messages": [
+        {
+          "id": "wx-chat-1-msg-0",
+          "body": "跟你说，我拿到大厂Offer了！",
+          "senderId": "wx-friend-1",
+          "time": "2026-11-03 10:10",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-1-msg-1",
+          "body": "啊啊啊恭喜！！薪资怎么样？",
+          "senderId": "owner",
+          "time": "2026-11-03 10:17",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-1-msg-2",
+          "body": "比预期高一点，但在北京租房也挺贵的。",
+          "senderId": "wx-friend-1",
+          "time": "2026-11-03 10:24",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-1-msg-3",
+          "body": "我还在纠结要不要去，怕进去之后强度太大。",
+          "senderId": "owner",
+          "time": "2026-11-03 10:31",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-1-msg-4",
+          "body": "先庆祝！选择慢慢想，真的替你开心。",
+          "senderId": "wx-friend-1",
+          "time": "2026-11-03 10:38",
+          "kind": "text",
+          "meta": {}
+        }
+      ]
+    },
+    {
+      "id": "wx-chat-2",
+      "app": "wechat",
+      "title": "恋爱幸福的C",
+      "participants": [
+        "owner",
+        "wx-friend-2"
+      ],
+      "messages": [
+        {
+          "id": "wx-chat-2-msg-0",
+          "body": "他今天突然来学校找我，还给我准备了生日礼物。",
+          "senderId": "wx-friend-2",
+          "time": "2026-11-03 11:10",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-2-msg-1",
+          "body": "天呐！什么礼物？",
+          "senderId": "owner",
+          "time": "2026-11-03 11:17",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-2-msg-2",
+          "body": "是我上个月随口说过想要的那本绝版书。",
+          "senderId": "wx-friend-2",
+          "time": "2026-11-03 11:24",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-2-msg-3",
+          "body": "他还记得啊，我当场就哭了。",
+          "senderId": "owner",
+          "time": "2026-11-03 11:31",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-2-msg-4",
+          "body": "你们也太甜了，生日快乐！",
+          "senderId": "wx-friend-2",
+          "time": "2026-11-03 11:38",
+          "kind": "text",
+          "meta": {}
+        }
+      ]
+    },
+    {
+      "id": "wx-chat-3",
+      "app": "wechat",
+      "title": "旅行中的D",
+      "participants": [
+        "owner",
+        "wx-friend-3"
+      ],
+      "messages": [
+        {
+          "id": "wx-chat-3-msg-0",
+          "body": "我现在在东京！这次终于实现一个小梦想。",
+          "senderId": "wx-friend-3",
+          "time": "2026-11-03 12:10",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-3-msg-1",
+          "body": "发照片！街道好看吗？",
+          "senderId": "owner",
+          "time": "2026-11-03 12:17",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-3-msg-2",
+          "body": "刚从涩谷出来，人好多，便利店饭团真的很好吃。",
+          "senderId": "wx-friend-3",
+          "time": "2026-11-03 12:24",
+          "kind": "image",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-3-msg-3",
+          "body": "明天准备去镰仓，希望天气好。",
+          "senderId": "owner",
+          "time": "2026-11-03 12:31",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-3-msg-4",
+          "body": "好好玩，注意安全，等你回来讲故事。",
+          "senderId": "wx-friend-3",
+          "time": "2026-11-03 12:38",
+          "kind": "text",
+          "meta": {}
+        }
+      ]
+    },
+    {
+      "id": "wx-chat-4",
+      "app": "wechat",
+      "title": "求职失败的E",
+      "participants": [
+        "owner",
+        "wx-friend-4"
+      ],
+      "messages": [
+        {
+          "id": "wx-chat-4-msg-0",
+          "body": "今天又被拒了，已经投了五十多份简历了。",
+          "senderId": "wx-friend-4",
+          "time": "2026-11-03 13:10",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-4-msg-1",
+          "body": "抱抱，最近有拿到面试吗？",
+          "senderId": "owner",
+          "time": "2026-11-03 13:17",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-4-msg-2",
+          "body": "有两个面试，最后都说岗位冻结。",
+          "senderId": "wx-friend-4",
+          "time": "2026-11-03 13:24",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-4-msg-3",
+          "body": "我开始怀疑是不是自己真的不适合这个行业。",
+          "senderId": "owner",
+          "time": "2026-11-03 13:31",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-4-msg-4",
+          "body": "不是你一个人的问题，先歇一晚，我们一起看看简历。",
+          "senderId": "wx-friend-4",
+          "time": "2026-11-03 13:38",
+          "kind": "text",
+          "meta": {}
+        }
+      ]
+    },
+    {
+      "id": "wx-chat-5",
+      "app": "wechat",
+      "title": "考研失败的F",
+      "participants": [
+        "owner",
+        "wx-friend-5"
+      ],
+      "messages": [
+        {
+          "id": "wx-chat-5-msg-0",
+          "body": "成绩出来了，没过线，感觉这一年努力都白费了。",
+          "senderId": "wx-friend-5",
+          "time": "2026-11-03 14:10",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-5-msg-1",
+          "body": "你现在在哪？要不要出来吃点东西？",
+          "senderId": "owner",
+          "time": "2026-11-03 14:17",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-5-msg-2",
+          "body": "在家，不太想见人。爸妈一直问我接下来怎么办。",
+          "senderId": "wx-friend-5",
+          "time": "2026-11-03 14:24",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-5-msg-3",
+          "body": "先别急着做决定，给自己几天时间。",
+          "senderId": "owner",
+          "time": "2026-11-03 14:31",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-5-msg-4",
+          "body": "嗯，谢谢你。我明天先去晒晒太阳。",
+          "senderId": "wx-friend-5",
+          "time": "2026-11-03 14:38",
+          "kind": "text",
+          "meta": {}
+        }
+      ]
+    },
+    {
+      "id": "wx-chat-6",
+      "app": "wechat",
+      "title": "加班吐槽的G",
+      "participants": [
+        "owner",
+        "wx-friend-6"
+      ],
+      "messages": [
+        {
+          "id": "wx-chat-6-msg-0",
+          "body": "每天上班加班到十点，工资还不够在上海生活。",
+          "senderId": "wx-friend-6",
+          "time": "2026-11-03 15:10",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-6-msg-1",
+          "body": "最近项目又改需求了吗？",
+          "senderId": "owner",
+          "time": "2026-11-03 15:17",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-6-msg-2",
+          "body": "连续第三周了，周末还要线上开会。",
+          "senderId": "wx-friend-6",
+          "time": "2026-11-03 15:24",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-6-msg-3",
+          "body": "有时候真不知道什么时候是个头。",
+          "senderId": "owner",
+          "time": "2026-11-03 15:31",
+          "kind": "audio",
+          "meta": {
+            "placeholder": "语音消息 12″"
+          }
+        },
+        {
+          "id": "wx-chat-6-msg-4",
+          "body": "别忘了吃饭，身体比项目重要。",
+          "senderId": "wx-friend-6",
+          "time": "2026-11-03 15:38",
+          "kind": "text",
+          "meta": {}
+        }
+      ]
+    },
+    {
+      "id": "wx-chat-7",
+      "app": "wechat",
+      "title": "新手妈妈的H",
+      "participants": [
+        "owner",
+        "wx-friend-7"
+      ],
+      "messages": [
+        {
+          "id": "wx-chat-7-msg-0",
+          "body": "宝宝今天第一次叫妈妈了！",
+          "senderId": "wx-friend-7",
+          "time": "2026-11-03 16:10",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-7-msg-1",
+          "body": "啊啊啊录下来了吗？",
+          "senderId": "owner",
+          "time": "2026-11-03 16:17",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-7-msg-2",
+          "body": "录到了！我妈在旁边也哭了。",
+          "senderId": "wx-friend-7",
+          "time": "2026-11-03 16:24",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-7-msg-3",
+          "body": "最近是不是很辛苦？",
+          "senderId": "owner",
+          "time": "2026-11-03 16:31",
+          "kind": "text",
+          "meta": {}
+        },
+        {
+          "id": "wx-chat-7-msg-4",
+          "body": "累是真的，但这一刻觉得所有辛苦都值得。",
+          "senderId": "wx-friend-7",
+          "time": "2026-11-03 16:38",
+          "kind": "text",
+          "meta": {}
         }
       ]
     }
   ],
   "content": {
-    "phone": [
+    "redbook": [
       {
-        "id": "test-item-phone",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "rb-p1",
+        "title": "保研上岸｜21岁",
+        "body": "把准备过程拆成了几个阶段：信息搜集、联系导师、材料准备和复试。也不是一路顺利，最后想说，先把今天能做的事做好。",
+        "time": "2026-11-02 21:18",
+        "sender": "栗子同学",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 12800,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@lizi_note",
+          "tags": "学业,职业,成功",
+          "imageStyle": "生活随拍",
+          "location": "杭州",
+          "tone": "向往"
+        }
+      },
+      {
+        "id": "rb-p2",
+        "title": "考研二战上岸",
+        "body": "去年这个时候我也觉得自己可能不行。二战没有什么逆袭滤镜，就是重复、怀疑、再坐回书桌前。写给还在路上的人。",
+        "time": "2026-11-02 18:42",
+        "sender": "晚风不加糖",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 8620,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@wanfeng_daily",
+          "tags": "学业,职业,成功",
+          "imageStyle": "截图记录",
+          "location": "上海",
+          "tone": "普通"
+        }
+      },
+      {
+        "id": "rb-p3",
+        "title": "大厂Offer到账",
+        "body": "收到邮件的时候在地铁上，第一反应是截图发给妈妈。开心是真的，接下来要面对的选择也是真的，先允许自己高兴一会儿。",
+        "time": "2026-11-01 12:20",
+        "sender": "momo在搬砖",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 15600,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@momo_work",
+          "tags": "学业,职业,财富,成功",
+          "imageStyle": "胶片日常",
+          "location": "成都",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "rb-p4",
+        "title": "普通本科也有春天",
+        "body": "没有所谓一夜逆袭。面试被问住过，简历也改了十几版。把踩过的坑记下来，希望能给普通学校的同学一点参考。",
+        "time": "2026-10-31 20:03",
+        "sender": "小城向前跑",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 4920,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@xiaocheng_up",
+          "tags": "学业,职业,成功",
+          "imageStyle": "文字笔记",
+          "location": "北京",
+          "tone": "吐槽"
+        }
+      },
+      {
+        "id": "rb-p5",
+        "title": "读博第三个月",
+        "body": "实验室、宿舍、食堂三点一线。今天的数据还是不太理想，晚上和师兄去吃了碗面，科研生活大概就是这样。",
+        "time": "2026-10-30 22:14",
+        "sender": "博士生小周",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 2310,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@zhou_phd",
+          "tags": "学业,职业,普通日常",
+          "imageStyle": "生活随拍",
+          "location": "广州",
+          "tone": "幸福"
+        }
+      },
+      {
+        "id": "rb-p6",
+        "title": "裸辞第17天",
+        "body": "离开熟悉的工作以后也会害怕。存款够撑几个月，简历还没更新完。先把睡眠补回来，再慢慢想下一步。",
+        "time": "2026-10-30 09:16",
+        "sender": "阿梨重新出发",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 7890,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@ali_restart",
+          "tags": "职业,生活方式,挫折",
+          "imageStyle": "截图记录",
+          "location": "南京",
+          "tone": "向往"
+        }
+      },
+      {
+        "id": "rb-p7",
+        "title": "公示结束啦",
+        "body": "公示结束啦。感谢家人朋友，也感谢那些没有结果的日子。接下来继续学习，体制内也不是一劳永逸。",
+        "time": "2026-10-29 19:46",
+        "sender": "体制内小透明",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 9300,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@tizhi_new",
+          "tags": "学业,职业,成功",
+          "imageStyle": "胶片日常",
+          "location": "杭州",
+          "tone": "普通"
+        }
+      },
+      {
+        "id": "rb-p8",
+        "title": "求职第183天",
+        "body": "投递、笔试、面试、等待，然后收到一封模板邮件。今天不想再改简历了，去楼下走了两圈，明天再继续。",
+        "time": "2026-11-02 23:08",
+        "sender": "今天也没上岸",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 3210,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@today_nojob",
+          "tags": "职业,挫折,普通日常",
+          "imageStyle": "文字笔记",
+          "location": "上海",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "rb-p9",
+        "title": "成绩出来了",
+        "body": "没过线。难过了一阵，还是决定先把身体和生活照顾好，再判断要不要三战。失败不值得被包装成励志故事。",
+        "time": "2026-02-28 13:02",
+        "sender": "二战失败也要吃饭",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 5600,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@kaoyan_again",
+          "tags": "学业,挫折,普通日常",
+          "imageStyle": "生活随拍",
+          "location": "成都",
+          "tone": "吐槽"
+        }
+      },
+      {
+        "id": "rb-p10",
+        "title": "被裁员后的第一个月",
+        "body": "被通知的时候脑子空白。现在一边整理项目经历，一边投简历，也开始接受职业路径可能要换一条。",
+        "time": "2026-10-28 20:17",
+        "sender": "失业但不失联",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 7100,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@job_hunt_diary",
+          "tags": "职业,财富,挫折",
+          "imageStyle": "截图记录",
+          "location": "北京",
+          "tone": "幸福"
+        }
+      },
+      {
+        "id": "rb-p11",
+        "title": "我的第一个十万",
+        "body": "没有特别厉害的理财技巧，就是记账、少冲动消费、每个月先存一点。也有过想买的东西忍了很久的时候。",
+        "time": "2026-10-27 22:01",
+        "sender": "存钱小满",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 18900,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@lizi_note",
+          "tags": "财富,成功,消费",
+          "imageStyle": "胶片日常",
+          "location": "广州",
+          "tone": "向往"
+        }
+      },
+      {
+        "id": "rb-p12",
+        "title": "人生第一辆车",
+        "body": "不是豪车，就是一辆能带我回家的小车。贷款还有很多，开心和压力都是真的。",
+        "time": "2026-10-26 17:30",
+        "sender": "车厘子不贵",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 11200,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@wanfeng_daily",
+          "tags": "财富,消费,成功",
+          "imageStyle": "文字笔记",
+          "location": "南京",
+          "tone": "普通"
+        }
+      },
+      {
+        "id": "rb-p13",
+        "title": "28岁买房之后",
+        "body": "房子交付那天拍了照片，晚上算完月供又沉默了。拥有一个家很开心，但也不想把买房说成唯一答案。",
+        "time": "2026-10-25 11:45",
+        "sender": "在上海还房贷",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 9800,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@momo_work",
+          "tags": "财富,生活方式,压力",
+          "imageStyle": "生活随拍",
+          "location": "杭州",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "rb-p14",
+        "title": "月底生存指南",
+        "body": "工资不高，还是想把日子过得像样一点。今天买了喜欢的花，晚饭自己做，月底继续精打细算。",
+        "time": "2026-11-01 08:30",
+        "sender": "月薪三千的阿敏",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 4300,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@xiaocheng_up",
+          "tags": "财富,普通日常",
+          "imageStyle": "截图记录",
+          "location": "上海",
+          "tone": "吐槽"
+        }
+      },
+      {
+        "id": "rb-p15",
+        "title": "月薪过万也不轻松",
+        "body": "工资数字看起来还行，但房租、通勤、保险和家里支出都在排队。不是不知足，只是生活成本真的很具体。",
+        "time": "2026-10-24 22:40",
+        "sender": "工资到账就转走",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 6700,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@zhou_phd",
+          "tags": "财富,职业,压力",
+          "imageStyle": "胶片日常",
+          "location": "成都",
+          "tone": "幸福"
+        }
+      },
+      {
+        "id": "rb-p16",
+        "title": "恋爱五周年",
+        "body": "他把我收藏过的旧唱片找来了。没有很贵重，但记得这些小事让我觉得被认真对待。",
+        "time": "2026-10-23 20:12",
+        "sender": "小鹿和先生",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 24500,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@ali_restart",
+          "tags": "恋爱,幸福,生活方式",
+          "imageStyle": "文字笔记",
+          "location": "北京",
+          "tone": "向往"
+        }
+      },
+      {
+        "id": "rb-p17",
+        "title": "我们的毕业季",
+        "body": "我们也争吵，也会为未来发愁。只是想把这个阶段记录下来，毕业和婚姻都不是终点。",
+        "time": "2026-10-22 18:30",
+        "sender": "毕业就结婚吗",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 17600,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@tizhi_new",
+          "tags": "恋爱,婚姻,学业",
+          "imageStyle": "生活随拍",
+          "location": "广州",
+          "tone": "普通"
+        }
+      },
+      {
+        "id": "rb-p18",
+        "title": "他说嫁给我吧",
+        "body": "朋友们起哄的时候我还在发抖。照片拍得很好看，但我记得最清楚的是他说完以后我们都哭了。",
+        "time": "2026-10-20 21:10",
+        "sender": "一颗小行星",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 32000,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@today_nojob",
+          "tags": "恋爱,婚姻,幸福",
+          "imageStyle": "截图记录",
+          "location": "南京",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "rb-p19",
+        "title": "婚礼当天碎片",
+        "body": "现场有点混乱，流程也有小插曲。回看照片还是觉得很幸福，希望以后也能记得今天的热闹。",
+        "time": "2026-10-19 13:10",
+        "sender": "婚礼放映员",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 15300,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@kaoyan_again",
+          "tags": "婚姻,生活方式",
+          "imageStyle": "胶片日常",
+          "location": "杭州",
+          "tone": "吐槽"
+        }
+      },
+      {
+        "id": "rb-p20",
+        "title": "第一次当妈妈",
+        "body": "睡眠不足是真的，手忙脚乱也是真的。看到宝宝的小手握住我的手，突然觉得世界安静了一下。",
+        "time": "2026-10-18 10:30",
+        "sender": "小桃妈妈",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 21800,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@job_hunt_diary",
+          "tags": "生育,婚姻,幸福",
+          "imageStyle": "文字笔记",
+          "location": "上海",
+          "tone": "幸福"
+        }
+      },
+      {
+        "id": "rb-p21",
+        "title": "我们还是走散了",
+        "body": "没有谁做错了什么，只是走到了不同的方向。删掉合照之前，还是想谢谢那段认真生活的时间。",
+        "time": "2026-10-17 23:00",
+        "sender": "失恋观察日记",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 9200,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@lizi_note",
+          "tags": "恋爱,挫折,普通日常",
+          "imageStyle": "生活随拍",
+          "location": "成都",
+          "tone": "向往"
+        }
+      },
+      {
+        "id": "rb-p22",
+        "title": "相亲复盘",
+        "body": "相亲像开盲盒，有人很好但不合适，也有人聊两句就知道没办法继续。暂时不想把结婚当成KPI。",
+        "time": "2026-10-16 19:50",
+        "sender": "相亲不下十次",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 6300,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@wanfeng_daily",
+          "tags": "恋爱,婚姻,挫折",
+          "imageStyle": "截图记录",
+          "location": "北京",
+          "tone": "普通"
+        }
+      },
+      {
+        "id": "rb-p23",
+        "title": "婚后生活实录",
+        "body": "婚后要面对的事情比想象中琐碎。爱还在，但沟通、分工和经济压力也需要认真处理。",
+        "time": "2026-10-15 21:33",
+        "sender": "已婚打工人",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 8400,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@momo_work",
+          "tags": "婚姻,普通日常,压力",
+          "imageStyle": "胶片日常",
+          "location": "广州",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "rb-p24",
+        "title": "巴黎独行记",
+        "body": "第一次独自出国，坐错车、点错餐，也遇到了愿意帮忙的陌生人。一个人旅行没有想象中潇洒，但很值得。",
+        "time": "2026-10-14 16:18",
+        "sender": "一个人去远方",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 28700,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@xiaocheng_up",
+          "tags": "旅行,生活方式,消费",
+          "imageStyle": "文字笔记",
+          "location": "南京",
+          "tone": "吐槽"
+        }
+      },
+      {
+        "id": "rb-p25",
+        "title": "终于见到她了",
+        "body": "灯光亮起来那一刻真的哭了。票价很贵，回来还得吃一周食堂，但那晚我会记很久。",
+        "time": "2026-10-13 23:30",
+        "sender": "耳机分你一半",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 36100,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@zhou_phd",
+          "tags": "旅行,消费,幸福",
+          "imageStyle": "生活随拍",
+          "location": "杭州",
+          "tone": "幸福"
+        }
+      },
+      {
+        "id": "rb-p26",
+        "title": "今天不想努力",
+        "body": "今天没有安排任何计划。洗衣服、点外卖、看电影，晚上突然觉得这样也挺好。",
+        "time": "2026-11-02 15:00",
+        "sender": "周末不营业",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 2300,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@ali_restart",
+          "tags": "生活方式,普通日常",
+          "imageStyle": "截图记录",
+          "location": "上海",
+          "tone": "向往"
+        }
+      },
+      {
+        "id": "rb-p27",
+        "title": "精致女孩的一天",
+        "body": "认真吃饭不是为了拍照，今天只是刚好把三顿饭都记录了。明天可能又是随便对付的一天。",
+        "time": "2026-10-12 20:20",
+        "sender": "饭饭今天吃什么",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 13800,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@tizhi_new",
+          "tags": "生活方式,外貌,消费",
+          "imageStyle": "胶片日常",
+          "location": "成都",
+          "tone": "普通"
+        }
+      },
+      {
+        "id": "rb-p28",
+        "title": "健身180天",
+        "body": "180天不全是自律，也有停训和暴食。身体变化能看见，更重要的是我现在愿意照顾自己。",
+        "time": "2026-10-11 08:00",
+        "sender": "慢慢练成自己",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 17400,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@today_nojob",
+          "tags": "外貌,身材,成长",
+          "imageStyle": "文字笔记",
+          "location": "北京",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "rb-p29",
+        "title": "减脂记录",
+        "body": "体重只是一个数字，平台上的前后对比看起来很戏剧化，但中间有很多普通的日子。",
+        "time": "2026-10-10 19:12",
+        "sender": "小麦同学",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 20400,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@kaoyan_again",
+          "tags": "外貌,身材,成长",
+          "imageStyle": "生活随拍",
+          "location": "广州",
+          "tone": "吐槽"
+        }
+      },
+      {
+        "id": "rb-p30",
+        "title": "妆前妆后差别",
+        "body": "没有换头，也没有突然变成另一个人。只是慢慢学会了适合自己的妆容和穿衣方式。",
+        "time": "2026-10-09 21:20",
+        "sender": "普通女孩变美日记",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 11700,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@job_hunt_diary",
+          "tags": "外貌,成长,消费",
+          "imageStyle": "截图记录",
+          "location": "南京",
+          "tone": "幸福"
+        }
+      },
+      {
+        "id": "rb-p31",
+        "title": "写给以前的自己",
+        "body": "以前合照总躲在最后一排。现在也会有不喜欢自己的时候，但不再把每一张照片都删掉。",
+        "time": "2026-10-08 22:00",
+        "sender": "不再躲镜头",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 9500,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@lizi_note",
+          "tags": "外貌,成长",
+          "imageStyle": "胶片日常",
+          "location": "杭州",
+          "tone": "向往"
+        }
+      },
+      {
+        "id": "rb-p32",
+        "title": "关于年龄的碎碎念",
+        "body": "身边的人好像都在结婚买房，我偶尔也会着急。后来发现每个人的时间表真的不一样。",
+        "time": "2026-10-07 20:30",
+        "sender": "三十岁不赶路",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 14200,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@wanfeng_daily",
+          "tags": "外貌,婚姻,挫折",
+          "imageStyle": "文字笔记",
+          "location": "上海",
+          "tone": "普通"
+        }
+      },
+      {
+        "id": "rb-p33",
+        "title": "合租房的夜晚",
+        "body": "回家发现室友留了西瓜，冰箱上还有一张便利贴。今天最开心的事就是这个。",
+        "time": "2026-10-06 22:15",
+        "sender": "合租快乐多",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 1800,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@momo_work",
+          "tags": "生活方式,普通日常",
+          "imageStyle": "生活随拍",
+          "location": "成都",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "rb-p34",
+        "title": "午休只有二十分钟",
+        "body": "午休吃饭的时候刷到别人环球旅行，关掉手机继续回工位。我的生活也不精彩，但也在认真过。",
+        "time": "2026-11-01 12:05",
+        "sender": "打工人的饭盒",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 3100,
+        "comments": [
+          "真的替你开心！"
+        ],
+        "meta": {
+          "handle": "@xiaocheng_up",
+          "tags": "职业,生活方式,挫折",
+          "imageStyle": "截图记录",
+          "location": "北京",
+          "tone": "吐槽"
+        }
+      },
+      {
+        "id": "rb-p35",
+        "title": "朋友给的惊喜",
+        "body": "本来以为没人记得，结果朋友带着蛋糕出现了。普通日子里被惦记的感觉很珍贵。",
+        "time": "2026-10-05 21:00",
+        "sender": "周周的生日派对",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 8700,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难"
+        ],
+        "meta": {
+          "handle": "@zhou_phd",
+          "tags": "生活方式,恋爱,幸福",
+          "imageStyle": "胶片日常",
+          "location": "广州",
+          "tone": "幸福"
+        }
+      },
+      {
+        "id": "rb-p36",
+        "title": "租房生活账本",
+        "body": "搬家纸箱还没拆完，房租通知又来了。想稳定下来，但现在只能先把这个月过好。",
+        "time": "2026-10-04 18:00",
+        "sender": "搬家第七次",
+        "kind": "post",
+        "folder": "发现",
+        "likes": 4900,
+        "comments": [
+          "真的替你开心！",
+          "想听听中间遇到的困难",
+          "每个人的节奏不一样，抱抱。"
+        ],
+        "meta": {
+          "handle": "@ali_restart",
+          "tags": "财富,生活方式,压力",
+          "imageStyle": "文字笔记",
+          "location": "南京",
+          "tone": "向往"
+        }
       }
     ],
-    "contacts": [
+    "wechat": [
       {
-        "id": "test-item-contacts",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "photos": [
+        "id": "wx-moment-0",
+        "title": "保研拟录取！",
+        "body": "今天终于可以把这块石头放下了。谢谢一路陪我改材料的人。",
+        "time": "2026-11-03 10:20",
+        "sender": "高中同桌",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 980,
+        "comments": [
+          "恭喜！！",
+          "高中班主任肯定很欣慰"
+        ],
+        "meta": {
+          "tags": "学业,职业,成功",
+          "tone": "幸福与进展"
+        }
+      },
       {
-        "id": "test-item-photos",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "camera": [
+        "id": "wx-moment-1",
+        "title": "offer收到了",
+        "body": "秋招第一份正式offer，虽然还在纠结城市，但先开心一天！",
+        "time": "2026-11-02 11:20",
+        "sender": "大学室友",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 620,
+        "comments": [
+          "太牛了请吃饭",
+          "恭喜宝"
+        ],
+        "meta": {
+          "tags": "职业,财富,成功",
+          "tone": "幸福与进展"
+        }
+      },
       {
-        "id": "test-item-camera",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "safari": [
+        "id": "wx-moment-2",
+        "title": "东京的第三天",
+        "body": "便利店早餐、地铁和夜晚的街道。下次还想和你们一起来。",
+        "time": "2026-11-01 12:20",
+        "sender": "小雨",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 340,
+        "comments": [
+          "照片好有氛围",
+          "玩得开心"
+        ],
+        "meta": {
+          "tags": "旅行,生活方式",
+          "tone": "幸福与进展"
+        }
+      },
       {
-        "id": "test-item-safari",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "notes": [
+        "id": "wx-moment-3",
+        "title": "恋爱纪念日",
+        "body": "五周年快乐。没有大惊喜，晚饭后散步也很好。",
+        "time": "2026-11-03 13:20",
+        "sender": "阿哲",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 210,
+        "comments": [
+          "长长久久",
+          "羡慕了"
+        ],
+        "meta": {
+          "tags": "恋爱,生活方式,幸福",
+          "tone": "幸福与进展"
+        }
+      },
       {
-        "id": "test-item-notes",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "calendar": [
+        "id": "wx-moment-4",
+        "title": "婚礼请柬",
+        "body": "下个月办婚礼啦，老同学们有空来玩！",
+        "time": "2026-11-02 14:20",
+        "sender": "班长小吴",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 430,
+        "comments": [
+          "一定到",
+          "恭喜恭喜"
+        ],
+        "meta": {
+          "tags": "婚姻,幸福",
+          "tone": "幸福与进展"
+        }
+      },
       {
-        "id": "test-item-calendar",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "mail": [
+        "id": "wx-moment-5",
+        "title": "我们家小朋友",
+        "body": "宝宝今天会笑着找人啦，手机相册已经全是他。",
+        "time": "2026-11-01 15:20",
+        "sender": "小林",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 760,
+        "comments": [
+          "好可爱",
+          "妈妈辛苦啦"
+        ],
+        "meta": {
+          "tags": "生育,婚姻,幸福",
+          "tone": "幸福与进展"
+        }
+      },
       {
-        "id": "test-item-mail",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "clock": [
+        "id": "wx-moment-6",
+        "title": "最近有点迷茫",
+        "body": "成绩没过线，先回家休息几天。暂时不想听建议，只想睡个好觉。",
+        "time": "2026-11-03 16:20",
+        "sender": "考研搭子",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 130,
+        "comments": [
+          "抱抱你",
+          "需要帮忙随时说"
+        ],
+        "meta": {
+          "tags": "学业,挫折",
+          "tone": "困境"
+        }
+      },
       {
-        "id": "test-item-clock",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "reminders": [
+        "id": "wx-moment-7",
+        "title": "又是十点下班",
+        "body": "项目上线后还是每天加班，感觉生活只剩下工位和出租屋。",
+        "time": "2026-11-02 17:20",
+        "sender": "前同事小陈",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 88,
+        "comments": [
+          "太真实了",
+          "注意身体"
+        ],
+        "meta": {
+          "tags": "职业,挫折,压力",
+          "tone": "困境"
+        }
+      },
       {
-        "id": "test-item-reminders",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "files": [
+        "id": "wx-moment-8",
+        "title": "工资到账",
+        "body": "交完房租和水电，给自己买了杯奶茶。这个月也算顺利活下来了。",
+        "time": "2026-11-01 18:20",
+        "sender": "阿敏",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 56,
+        "comments": [
+          "同款月光",
+          "奶茶要喝好的"
+        ],
+        "meta": {
+          "tags": "财富,普通日常",
+          "tone": "普通日常"
+        }
+      },
       {
-        "id": "test-item-files",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "music": [
-      {
-        "id": "test-item-music",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "maps": [
-      {
-        "id": "test-item-maps",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "weather": [
-      {
-        "id": "test-item-weather",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "wallet": [
-      {
-        "id": "test-item-wallet",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "health": [
-      {
-        "id": "test-item-health",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "find": [
-      {
-        "id": "test-item-find",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "calculator": [
-      {
-        "id": "test-item-calculator",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "settings": [
-      {
-        "id": "test-item-settings",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "wx-moment-9",
+        "title": "周六散步",
+        "body": "没什么特别的，公园走了两圈，回家煮面。",
+        "time": "2026-11-03 19:20",
+        "sender": "小乔",
+        "kind": "post",
+        "folder": "朋友圈",
+        "likes": 92,
+        "comments": [
+          "这样的周末很舒服",
+          "天气真好"
+        ],
+        "meta": {
+          "tags": "生活方式,普通日常",
+          "tone": "普通日常"
+        }
       }
     ],
     "weibo": [
       {
-        "id": "test-item-weibo",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "redbook": [
+        "id": "wb-topic-0",
+        "title": "#同龄人已经开始买房了#",
+        "body": "有人28岁已经有房有车，也有人还在合租。买房是目标，不是统一进度条。",
+        "time": "2026-11-03 18:30",
+        "sender": "热搜编辑部",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 12000,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,财富,婚姻",
+          "heat": "86.0万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-redbook",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "douyin": [
+        "id": "wb-topic-1",
+        "title": "#大学生就业到底有多难#",
+        "body": "今年投了很多岗位，感觉每一步都要和几百个人竞争。",
+        "time": "2026-11-03 17:30",
+        "sender": "晚点再说",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 11150,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,学业,职业,挫折",
+          "heat": "80.2万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-douyin",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "bilibili": [
+        "id": "wb-topic-2",
+        "title": "#保研上岸是一种什么体验#",
+        "body": "从夏令营到拟录取，像跑完一场很长的马拉松。",
+        "time": "2026-11-03 16:30",
+        "sender": "考研观察员",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 10300,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,学业,职业",
+          "heat": "74.4万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-bilibili",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "alipay": [
+        "id": "wb-topic-3",
+        "title": "#30岁还没有结婚正常吗#",
+        "body": "不想为了赶时间而结婚，但也会被亲戚的问题影响心情。",
+        "time": "2026-11-03 15:30",
+        "sender": "不急着结婚",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 9450,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,婚姻,恋爱",
+          "heat": "68.6万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-alipay",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "taobao": [
+        "id": "wb-topic-4",
+        "title": "#第一次去看演唱会#",
+        "body": "抢票成功那一刻尖叫了十分钟，终于见到喜欢很多年的人。",
+        "time": "2026-11-03 14:30",
+        "sender": "热搜编辑部",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 8600,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,旅行,消费",
+          "heat": "62.8万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-taobao",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "netease": [
+        "id": "wb-topic-5",
+        "title": "#月薪3000和月薪30000的生活差距#",
+        "body": "数字差距很大，生活成本也不同。评论区别急着互相教育。",
+        "time": "2026-11-03 13:30",
+        "sender": "晚点再说",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 7750,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,财富,生活方式",
+          "heat": "57.0万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-netease",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "delivery": [
+        "id": "wb-topic-6",
+        "title": "#为什么大家都在晒幸福#",
+        "body": "朋友圈看起来每个人都过得很好，但那可能只是一天里最好的一张照片。",
+        "time": "2026-11-03 12:30",
+        "sender": "考研观察员",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 6900,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,生活方式,情绪",
+          "heat": "51.2万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-delivery",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "forum": [
+        "id": "wb-topic-7",
+        "title": "#考研失败之后我怎么样了#",
+        "body": "没上岸，去工作了。现在回头看，人生没有只剩一条路。",
+        "time": "2026-11-03 11:30",
+        "sender": "不急着结婚",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 6050,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,学业,挫折",
+          "heat": "45.4万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-forum",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "instagram": [
+        "id": "wb-topic-8",
+        "title": "#普通人的生活值得记录吗#",
+        "body": "今天只是下班路上买了橘子，也想记录一下。",
+        "time": "2026-11-03 10:30",
+        "sender": "热搜编辑部",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 5200,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,普通日常",
+          "heat": "39.6万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-instagram",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "tiktok": [
+        "id": "wb-topic-9",
+        "title": "#成年人的崩溃只在一瞬间#",
+        "body": "地铁上接到电话，回到家才发现自己一直没吃晚饭。",
+        "time": "2026-11-03 09:30",
+        "sender": "晚点再说",
+        "kind": "post",
+        "folder": "热搜",
+        "likes": 4350,
+        "comments": [
+          "我身边也是这样。",
+          "每个人的情况不一样，别一概而论。",
+          "说得太真实了。",
+          "也有人有不同体验。"
+        ],
+        "meta": {
+          "tags": "热搜,职业,压力",
+          "heat": "33.8万",
+          "topic": "true"
+        }
+      },
       {
-        "id": "test-item-tiktok",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "wb-post-0",
+        "title": "小周的日常",
+        "body": "#保研上岸是一种什么体验# 终于等到结果，先去吃顿好的。",
+        "time": "2026-11-02 20:12",
+        "sender": "小周的日常",
+        "kind": "post",
+        "folder": "关注",
+        "likes": 420,
+        "comments": [
+          "抱抱，都会慢慢好起来。",
+          "每个人的生活都不一样。",
+          "谢谢分享，我也有类似经历。"
+        ],
+        "meta": {
+          "tags": "学业,职业,成功"
+        }
+      },
+      {
+        "id": "wb-post-1",
+        "title": "打工小许",
+        "body": "#月薪3000和月薪30000的生活差距# 我月薪三千，最大的快乐是下班后不用回消息。",
+        "time": "2026-11-02 21:12",
+        "sender": "打工小许",
+        "kind": "post",
+        "folder": "关注",
+        "likes": 657,
+        "comments": [
+          "抱抱，都会慢慢好起来。",
+          "每个人的生活都不一样。",
+          "谢谢分享，我也有类似经历。"
+        ],
+        "meta": {
+          "tags": "财富,普通日常"
+        }
+      },
+      {
+        "id": "wb-post-2",
+        "title": "三十岁以后",
+        "body": "#30岁还没有结婚正常吗# 正常啊，我现在更想把生活安排舒服。",
+        "time": "2026-11-02 22:12",
+        "sender": "三十岁以后",
+        "kind": "post",
+        "folder": "关注",
+        "likes": 894,
+        "comments": [
+          "抱抱，都会慢慢好起来。",
+          "每个人的生活都不一样。",
+          "谢谢分享，我也有类似经历。"
+        ],
+        "meta": {
+          "tags": "婚姻,生活方式"
+        }
+      },
+      {
+        "id": "wb-post-3",
+        "title": "小猫不加班",
+        "body": "#成年人的崩溃只在一瞬间# 今天开会被点名，回家路上突然很想哭。",
+        "time": "2026-11-02 23:12",
+        "sender": "小猫不加班",
+        "kind": "post",
+        "folder": "关注",
+        "likes": 1131,
+        "comments": [
+          "抱抱，都会慢慢好起来。",
+          "每个人的生活都不一样。",
+          "谢谢分享，我也有类似经历。"
+        ],
+        "meta": {
+          "tags": "职业,挫折"
+        }
+      },
+      {
+        "id": "wb-post-4",
+        "title": "远方来信",
+        "body": "#第一次去看演唱会# 这张票花了半个月生活费，但我不后悔。",
+        "time": "2026-11-02 24:12",
+        "sender": "远方来信",
+        "kind": "post",
+        "folder": "关注",
+        "likes": 1368,
+        "comments": [
+          "抱抱，都会慢慢好起来。",
+          "每个人的生活都不一样。",
+          "谢谢分享，我也有类似经历。"
+        ],
+        "meta": {
+          "tags": "消费,旅行,幸福"
+        }
+      },
+      {
+        "id": "wb-post-5",
+        "title": "阿哲在找工作",
+        "body": "#大学生就业到底有多难# 失业第四个月，今天终于有一个二面。",
+        "time": "2026-11-02 25:12",
+        "sender": "阿哲在找工作",
+        "kind": "post",
+        "folder": "关注",
+        "likes": 1605,
+        "comments": [
+          "抱抱，都会慢慢好起来。",
+          "每个人的生活都不一样。",
+          "谢谢分享，我也有类似经历。"
+        ],
+        "meta": {
+          "tags": "职业,挫折"
+        }
+      },
+      {
+        "id": "wb-post-6",
+        "title": "晚饭吃什么",
+        "body": "#普通人的生活值得记录吗# 记录一下今天煮成功的番茄鸡蛋面。",
+        "time": "2026-11-02 26:12",
+        "sender": "晚饭吃什么",
+        "kind": "post",
+        "folder": "关注",
+        "likes": 1842,
+        "comments": [
+          "抱抱，都会慢慢好起来。",
+          "每个人的生活都不一样。",
+          "谢谢分享，我也有类似经历。"
+        ],
+        "meta": {
+          "tags": "普通日常"
+        }
+      },
+      {
+        "id": "wb-post-7",
+        "title": "不做人生赢家",
+        "body": "#为什么大家都在晒幸福# 不想批评分享幸福的人，只希望大家也能分享普通的一天。",
+        "time": "2026-11-02 27:12",
+        "sender": "不做人生赢家",
+        "kind": "post",
+        "folder": "关注",
+        "likes": 2079,
+        "comments": [
+          "抱抱，都会慢慢好起来。",
+          "每个人的生活都不一样。",
+          "谢谢分享，我也有类似经历。"
+        ],
+        "meta": {
+          "tags": "生活方式"
+        }
       }
     ],
     "twitter": [
       {
-        "id": "test-item-twitter",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "youtube": [
-      {
-        "id": "test-item-youtube",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "snapchat": [
-      {
-        "id": "test-item-snapchat",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "facebook": [
-      {
-        "id": "test-item-facebook",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "reddit": [
-      {
-        "id": "test-item-reddit",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "spotify": [
-      {
-        "id": "test-item-spotify",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "netflix": [
-      {
-        "id": "test-item-netflix",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "pinterest": [
-      {
-        "id": "test-item-pinterest",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "threads": [
-      {
-        "id": "test-item-threads",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      },
-      {
-        "id": "test-threads-message-1",
-        "title": "测试会话1",
-        "body": "这是一条测试消息。",
-        "sender": "测试联系人1",
-        "folder": "私信"
-      },
-      {
-        "id": "test-threads-activity-1",
-        "title": "测试动态1",
-        "body": "这是一条测试回复动态。",
-        "sender": "测试用户1",
+        "id": "x-post-0",
+        "title": "Mia",
+        "body": "24-year-old woman finally got her dream job. Still nervous, still excited. 第一天上班请多指教。",
+        "time": "2026-11-03 16:25",
+        "sender": "Mia",
+        "kind": "post",
+        "folder": "为你推荐",
+        "likes": 340,
+        "comments": [
+          "Congrats! You deserve it.",
+          "Take your time. Life is not a race.",
+          "Thanks for sharing this. ❤️"
+        ],
         "meta": {
-          "activityType": "reply"
+          "tags": "职业,成功",
+          "handle": "mia_days",
+          "language": "Mixed"
         }
       },
       {
-        "id": "test-threads-message-2",
-        "title": "测试会话2",
-        "body": "这是一条测试消息。",
-        "sender": "测试联系人2",
-        "folder": "私信"
-      },
-      {
-        "id": "test-threads-activity-2",
-        "title": "测试动态2",
-        "body": "这是一条测试回复动态。",
-        "sender": "测试用户2",
+        "id": "x-post-1",
+        "title": "Daniel",
+        "body": "Just got married to my college sweetheart! We made it through long distance and too many exams. 💍",
+        "time": "2026-11-02 17:25",
+        "sender": "Daniel",
+        "kind": "post",
+        "folder": "正在关注",
+        "likes": 955,
+        "comments": [
+          "Congrats! You deserve it.",
+          "Take your time. Life is not a race.",
+          "Thanks for sharing this. ❤️"
+        ],
         "meta": {
-          "activityType": "reply"
+          "tags": "恋爱,婚姻,幸福",
+          "handle": "danielwrites",
+          "language": "English"
         }
       },
       {
-        "id": "test-threads-message-3",
-        "title": "测试会话3",
-        "body": "这是一条测试消息。",
-        "sender": "测试联系人3",
-        "folder": "私信"
+        "id": "x-post-2",
+        "title": "Nora",
+        "body": "Traveling around Europe for three months. 今天在Lisbon迷路了，但发现一家很棒的小书店。",
+        "time": "2026-11-01 18:25",
+        "sender": "Nora",
+        "kind": "post",
+        "folder": "为你推荐",
+        "likes": 1570,
+        "comments": [
+          "Congrats! You deserve it.",
+          "Take your time. Life is not a race.",
+          "Thanks for sharing this. ❤️"
+        ],
+        "meta": {
+          "tags": "旅行,生活方式",
+          "handle": "nora_wanders",
+          "language": "Mixed"
+        }
       },
       {
-        "id": "test-threads-activity-3",
-        "title": "测试动态3",
-        "body": "这是一条测试回复动态。",
-        "sender": "测试用户3",
+        "id": "x-post-3",
+        "title": "Alex",
+        "body": "I failed my final exam again. Feeling lost, but trying to be kind to myself tonight.",
+        "time": "2026-11-03 19:25",
+        "sender": "Alex",
+        "kind": "post",
+        "folder": "正在关注",
+        "likes": 2185,
+        "comments": [
+          "Congrats! You deserve it.",
+          "Take your time. Life is not a race.",
+          "Thanks for sharing this. ❤️"
+        ],
         "meta": {
-          "activityType": "reply"
+          "tags": "学业,挫折",
+          "handle": "alex_tries",
+          "language": "English"
+        }
+      },
+      {
+        "id": "x-post-4",
+        "title": "Sam",
+        "body": "35 and still figuring out my life. New city, new job search, same old coffee. ☕",
+        "time": "2026-11-02 20:25",
+        "sender": "Sam",
+        "kind": "post",
+        "folder": "为你推荐",
+        "likes": 2800,
+        "comments": [
+          "Congrats! You deserve it.",
+          "Take your time. Life is not a race.",
+          "Thanks for sharing this. ❤️"
+        ],
+        "meta": {
+          "tags": "职业,普通日常",
+          "handle": "sam35",
+          "language": "Mixed"
+        }
+      },
+      {
+        "id": "x-post-5",
+        "title": "Ella",
+        "body": "Finally became a mother at 32. Exhausted beyond words, happier than I expected. ❤️",
+        "time": "2026-11-01 21:25",
+        "sender": "Ella",
+        "kind": "post",
+        "folder": "正在关注",
+        "likes": 3415,
+        "comments": [
+          "Congrats! You deserve it.",
+          "Take your time. Life is not a race.",
+          "Thanks for sharing this. ❤️"
+        ],
+        "meta": {
+          "tags": "生育,婚姻",
+          "handle": "ella_home",
+          "language": "English"
+        }
+      },
+      {
+        "id": "x-post-6",
+        "title": "Chris",
+        "body": "Quit my job and started over. Not a success story yet—just taking it one day at a time.",
+        "time": "2026-11-03 22:25",
+        "sender": "Chris",
+        "kind": "post",
+        "folder": "为你推荐",
+        "likes": 4030,
+        "comments": [
+          "Congrats! You deserve it.",
+          "Take your time. Life is not a race.",
+          "Thanks for sharing this. ❤️"
+        ],
+        "meta": {
+          "tags": "职业,挫折",
+          "handle": "chrisagain",
+          "language": "Mixed"
+        }
+      },
+      {
+        "id": "x-post-7",
+        "title": "Yuki",
+        "body": "Some days are productive, some days are just laundry and a walk. どちらも大切。",
+        "time": "2026-11-02 23:25",
+        "sender": "Yuki",
+        "kind": "post",
+        "folder": "正在关注",
+        "likes": 4645,
+        "comments": [
+          "Congrats! You deserve it.",
+          "Take your time. Life is not a race.",
+          "Thanks for sharing this. ❤️"
+        ],
+        "meta": {
+          "tags": "生活方式,普通日常",
+          "handle": "yuki_notes",
+          "language": "Mixed"
         }
       }
     ],
-    "appstore": [
+    "insights": [
       {
-        "id": "test-appstore",
-        "title": "测试内容",
-        "body": "这是一条测试内容。"
+        "id": "insights-intro",
+        "title": "你的浏览画像",
+        "body": "这里会根据本次体验中的浏览、停留和互动行为，整理内容关注偏好。",
+        "time": "2026-11-03 19:42",
+        "sender": "系统",
+        "kind": "note",
+        "meta": {
+          "tags": "分析,浏览画像"
+        }
       }
     ]
   },
