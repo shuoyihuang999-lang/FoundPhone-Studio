@@ -377,7 +377,7 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
           <Heart size={29} fill={liked ? "#f44368" : "white"} />
           <small>{item.likes + (liked ? 1 : 0)}</small>
         </button>
-        <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
+        <button aria-label={`评论${item.title}`} onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>
           <MessageCircle size={29} />
           <small>{item.comments.length}</small>
         </button>
