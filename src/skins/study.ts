@@ -22,11 +22,11 @@ export function recordStudyEvent(
   extra: { durationMs?: number; value?: string } = {},
 ) {
   const appId = p.appId || "unknown";
-  let events = eventCache.get(appId);
+  let events = eventCache.get("global");
   if (!events) {
     try {
-      const raw = p.ui?.studyEvents;
-      events = typeof raw === "string" ? JSON.parse(raw) as StudyEvent[] : [];
+      const raw = typeof localStorage !== "undefined" ? localStorage.getItem("foundphone-study-events") : null;
+      events = raw ? JSON.parse(raw) as StudyEvent[] : [];
     } catch {
       events = [];
     }
@@ -47,7 +47,12 @@ export function recordStudyEvent(
       ...extra,
     },
   ].slice(-3000);
-  eventCache.set(appId, next);
+  eventCache.set("global", next);
+  try {
+    if (typeof localStorage !== "undefined") localStorage.setItem("foundphone-study-events", JSON.stringify(next));
+  } catch {
+    // Keep the experience usable when browser storage is restricted.
+  }
   p.onUi?.("studyEvents", JSON.stringify(next) as UiValue);
 }
 
