@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Props } from "./shared";
 export type StudyEvent = { type: string; appId: string; itemId?: string; title?: string; tags?: string[]; at: number; durationMs?: number; value?: string };
 const eventCache: { events: StudyEvent[] } = { events: [] };
-export function recordStudyEvent(p: Pick<Props, "appId">, type: string, item?: { id?: string; title?: string; meta?: Record<string, string> }, extra: { durationMs?: number; value?: string } = {}) {
+export function recordStudyEvent(p: Pick<Props, "appId" | "ui" | "onUi">, type: string, item?: { id?: string; title?: string; meta?: Record<string, string> }, extra: { durationMs?: number; value?: string } = {}) {
   let events = eventCache.events;
   if (!events.length) {
     try {
