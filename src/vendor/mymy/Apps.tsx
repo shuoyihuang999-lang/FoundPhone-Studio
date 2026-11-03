@@ -28,6 +28,8 @@ import {
 import type { SkinProps } from "../../AppSkins";
 import { Avatar, Media } from "../../skins/shared";
 import { useSkinState } from "../../skinState";
+import { recordStudyEvent, useStudyTracking } from "../../skins/study";
+import type { Props } from "../../skins/shared";
 import { makeItem, type Item } from "../../schema";
 import "./ui.css";
 import "./adapter.css";
@@ -638,6 +640,7 @@ export function MymyInstagram(p: SkinProps) {
   );
 }
 export function MymyX(p: SkinProps) {
+  useStudyTracking(p as Props);
   const [dark, setDark] = useSkinState<boolean>(p, "x-dark", true);
   const [tab, setTab] = useSkinState<string>(p, "mymyTab", "推荐"),
     [likes, setLikes] = useSkinState<string[]>(p, "mymyXLikes", []),
@@ -693,7 +696,7 @@ export function MymyX(p: SkinProps) {
           {p.items
             .filter((i) => (i.title + i.body).includes(query))
             .map((i) => (
-              <article className="kzxt" key={i.id}>
+              <article className="kzxt" key={i.id} data-study-id={i.id} data-study-title={i.title} data-study-tags={i.meta.tags || ""}>
                 <Avatar name={i.sender} src={i.avatar} />
                 <div className="kzxb">
                   <div className="kzxn">
