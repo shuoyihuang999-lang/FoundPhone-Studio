@@ -20,6 +20,7 @@ import {
 import { useState } from "react";
 import type { Item } from "../schema";
 import { recordStudyEvent, useStudyTracking } from "./study";
+import "./insights.css";
 import {
   Avatar,
   Empty,
