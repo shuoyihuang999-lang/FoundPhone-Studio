@@ -37,11 +37,11 @@ function Actions({ p, item }: { p: Props; item: Item }) {
     [saved, setSaved] = useSkinState<boolean>(p, `saved-${item.id}`, false);
   return (
     <div className="social-actions">
-      <button aria-label={`喜欢${item.title}`} onClick={() => setLiked(!liked)}>
+      <button aria-label={`喜欢${item.title}`} onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}>
         <Heart size={17} fill={liked ? "currentColor" : "none"} />
         {item.likes + (liked ? 1 : 0) || ""}
       </button>
-      <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
+      <button aria-label={`评论${item.title}`} onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>
         <MessageCircle size={17} />
         {item.comments.length || ""}
       </button>
@@ -49,7 +49,7 @@ function Actions({ p, item }: { p: Props; item: Item }) {
         <Repeat2 size={17} />
         {meta(item, "reposts")}
       </button>
-      <button aria-label={`收藏${item.title}`} onClick={() => setSaved(!saved)}>
+      <button aria-label={`收藏${item.title}`} onClick={() => { setSaved(!saved); recordStudyEvent(p, saved ? "unsave" : "save", item); }}>
         <Bookmark size={16} fill={saved ? "currentColor" : "none"} />
       </button>
     </div>
@@ -117,7 +117,7 @@ export function WeiboSkin(p: Props) {
           </div>
         ) : (
           <>
-            <SearchBox value={q} set={setQ} />
+            <SearchBox value={q} set={(v) => { setQ(v); recordStudyEvent(p, "search", undefined, { value: v }); }} />
             <div className="weibo-feed-filter">
               {["全部", ...groupItems(items).filter((g) => g !== "未分类")].map(
                 (g) => (
@@ -130,7 +130,7 @@ export function WeiboSkin(p: Props) {
           </>
         )}
         {list.map((i) => (
-          <article className="weibo-post" key={i.id}>
+          <article className="weibo-post" key={i.id} data-study-id={i.id} data-study-title={i.title} data-study-tags={meta(i, "tags")}>
             <PostHeader p={p} item={i} />
             <button className="social-body" onClick={() => p.onItem(i)}>
               <p>{i.body}</p>
@@ -169,7 +169,7 @@ export function XSkin(p: Props) {
         {items
           .filter((i) => tab === "为你推荐" || i.folder === "正在关注")
           .map((i) => (
-            <article className="x-post" key={i.id}>
+            <article className="x-post" key={i.id} data-study-id={i.id} data-study-title={i.title} data-study-tags={meta(i, "tags")}>
               <Avatar name={i.sender} />
               <div>
                 <button className="x-byline" onClick={() => p.onItem(i)}>
@@ -332,7 +332,7 @@ export function RedbookSkin(p: Props) {
   useStudyTracking(p);
   const { tab, setTab, q, setQ, items } = useContent(p, "发现");
   const list = tab === "收藏"
-    ? items.filter((i) => useSavedValue(p, i.id))
+    ? items.filter((i) => p.ui?.["saved-" + i.id] === true)
     : tab === "关注"
       ? items.filter((i) => i.folder === "关注")
       : items;
@@ -354,10 +354,6 @@ export function RedbookSkin(p: Props) {
       <Tabs tabs={["发现", "收藏"]} value={tab} set={setTab} icons={[<Home />, <Bookmark />]} />
     </div>
   );
-}
-function useSavedValue(p: Props, id: string) {
-  const [saved] = useSkinState<boolean>(p, "saved-" + id, false);
-  return saved;
 }
 function RedbookCard({ p, item }: { p: Props; item: Item }) {
   const [liked, setLiked] = useSkinState<boolean>(p, "liked-" + item.id, false);
