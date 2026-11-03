@@ -694,7 +694,7 @@ export function MymyX(p: SkinProps) {
         )}
         <div className="kzxfd">
           {p.items
-            .filter((i) => (i.title + i.body).includes(query))
+            .filter((i) => (i.title + i.body).includes(query) && (tab !== "正在关注" || i.folder === "正在关注"))
             .map((i) => (
               <article className="kzxt" key={i.id} data-study-id={i.id} data-study-title={i.title} data-study-tags={i.meta.tags || ""}>
                 <Avatar name={i.sender} src={i.avatar} />
