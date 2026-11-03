@@ -46,7 +46,7 @@ function Actions({ p, item }: { p: Props; item: Item }) {
         <MessageCircle size={17} />
         {item.comments.length || ""}
       </button>
-      <button aria-label={`详情${item.title}`} onClick={() => p.onItem(item)}>
+      <button aria-label={`详情${item.title}`} onClick={() => { recordStudyEvent(p, "detail_open", item); p.onItem(item); }}>
         <Repeat2 size={17} />
         {meta(item, "reposts")}
       </button>
@@ -82,7 +82,7 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
       <button
         aria-label={`喜欢${item.title}`}
         aria-pressed={liked}
-        onClick={() => setLiked(!liked)}
+        onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}
       >
         <ThumbsUp size={17} fill={liked ? "currentColor" : "none"} />
         {item.likes + (liked ? 1 : 0) || "赞"}
