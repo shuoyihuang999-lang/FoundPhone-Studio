@@ -688,7 +688,7 @@ export function MymyX(p: SkinProps) {
             className="mymy-search"
             aria-label="搜索X"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => { setQuery(e.target.value); recordStudyEvent(p as Props, "search", undefined, { value: e.target.value }); }}
             placeholder="搜索"
           />
         )}
