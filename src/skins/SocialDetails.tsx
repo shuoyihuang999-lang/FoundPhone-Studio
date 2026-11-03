@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { recordStudyEvent } from "./study";
 import {
   ChevronLeft,
   MoreHorizontal,
@@ -23,7 +24,7 @@ import { RichText } from "../RichText";
 import { Avatar, Media, meta } from "./shared";
 import type { Item, UiValue } from "../schema";
 import "./social-details.css";
-export const socialDetailApps = new Set(["twitter", "weibo"]);
+export const socialDetailApps = new Set(["twitter", "weibo", "redbook"]);
 const count = (n: number) =>
   n >= 10000 ? (n / 10000).toFixed(1).replace(/\.0$/, "") + "w" : String(n);
 export function SocialDetail(p: {
