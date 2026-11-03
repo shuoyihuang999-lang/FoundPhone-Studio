@@ -721,7 +721,7 @@ export function MymyX(p: SkinProps) {
                     <button
                       className="kzxv"
                       aria-label="打开媒体"
-                      onClick={() => p.onItem(i)}
+                      onClick={() => { recordStudyEvent(p as Props, "comments_open", i); p.onItem(i); }}
                     >
                       <Media item={i} />
                     </button>
@@ -748,6 +748,7 @@ export function MymyX(p: SkinProps) {
                       onClick={() => {
                         toggle(i.id, likes, setLikes);
                         p.onUi?.("liked-" + i.id, !isLiked(i.id));
+                        recordStudyEvent(p as Props, isLiked(i.id) ? "like" : "unlike", i);
                       }}
                     >
                       <Heart fill={isLiked(i.id) ? "#f91880" : "none"} />
@@ -763,6 +764,7 @@ export function MymyX(p: SkinProps) {
                       onClick={() => {
                         toggle(i.id, marks, setMarks);
                         p.onUi?.("saved-" + i.id, !isSaved(i.id));
+                        recordStudyEvent(p as Props, isSaved(i.id) ? "save" : "unsave", i);
                       }}
                     >
                       <Bookmark />
