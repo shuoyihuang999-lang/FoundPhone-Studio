@@ -35,7 +35,6 @@ export function useStudyTracking(p: Props) {
     recordStudyEvent(latest.current, "app_open");
     const root = document.querySelector<HTMLElement>(".catalog-scroll") || document.querySelector<HTMLElement>(".wx-moments") || undefined;
     const active = new Map<Element, { at: number; id: string; title: string; tags: string }>();
-    const nodes = document.querySelectorAll<HTMLElement>("[data-study-id]");
     const observer = typeof IntersectionObserver === "undefined" ? null : new IntersectionObserver((entries) => {
       for (const entry of entries) {
         const node = entry.target as HTMLElement;
@@ -57,8 +56,21 @@ export function useStudyTracking(p: Props) {
         }
       }
     }, { root: root ?? null, threshold: [0, 0.55, 1] });
-    if (observer) nodes.forEach((node) => observer.observe(node));
+    const observeNodes = (scope: ParentNode) => {
+      if (observer) scope.querySelectorAll<HTMLElement>("[data-study-id]").forEach((node) => observer.observe(node));
+    };
+    observeNodes(document);
+    const mutation = typeof MutationObserver === "undefined" ? null : new MutationObserver((records) => {
+      for (const record of records) record.addedNodes.forEach((node) => {
+        if (node instanceof HTMLElement) {
+          if (node.matches("[data-study-id]")) observer?.observe(node);
+          observeNodes(node);
+        }
+      });
+    });
+    if (root && mutation) mutation.observe(root, { childList: true, subtree: true });
     return () => {
+      mutation?.disconnect();
       observer?.disconnect();
       for (const seen of active.values()) {
         const durationMs = Date.now() - seen.at;
