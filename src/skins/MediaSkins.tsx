@@ -30,6 +30,7 @@ import {
   useContent,
   type Props,
 } from "./shared";
+import { recordStudyEvent, useStudyTracking } from "./study";
 function TrackPlayer({
   item,
   p,
