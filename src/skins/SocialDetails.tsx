@@ -111,8 +111,10 @@ export function SocialDetail(p: {
         "app-post-detail " +
         (weibo
           ? "weibo-post-detail"
-          : "x-post-detail" +
-            (p.ui?.["x-dark"] !== false ? " x-reference-dark" : ""))
+          : redbook
+            ? "x-post-detail redbook-post-detail"
+            : "x-post-detail" +
+              (p.ui?.["x-dark"] !== false ? " x-reference-dark" : ""))
       }
     >
       <header className="post-detail-nav">
