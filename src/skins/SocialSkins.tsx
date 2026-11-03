@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import type { Item } from "../schema";
+import { recordStudyEvent, useStudyTracking } from "./study";
 import {
   Avatar,
   Empty,
@@ -89,6 +90,7 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
   );
 }
 export function WeiboSkin(p: Props) {
+  useStudyTracking(p);
   const { tab, setTab, q, setQ, items } = useContent(p, "关注");
   const [feed, setFeed] = useState("全部");
   const list = feed === "全部" ? items : items.filter((i) => i.folder === feed);
@@ -143,6 +145,7 @@ export function WeiboSkin(p: Props) {
   );
 }
 export function XSkin(p: Props) {
+  useStudyTracking(p);
   const { tab, setTab, q, setQ, items } = useContent(p, "为你推荐");
   return (
     <div className="catalog-skin x-ui">
@@ -326,54 +329,66 @@ export function FacebookSkin(p: Props) {
   );
 }
 export function RedbookSkin(p: Props) {
+  useStudyTracking(p);
   const { tab, setTab, q, setQ, items } = useContent(p, "发现");
-  const list =
-    tab === "收藏"
-      ? items.filter((i) => i.favorite)
-      : tab === "关注"
-        ? items.filter((i) => i.folder === "关注")
-        : items;
+  const list = tab === "收藏"
+    ? items.filter((i) => useSavedValue(p, i.id))
+    : tab === "关注"
+      ? items.filter((i) => i.folder === "关注")
+      : items;
   return (
     <div className="catalog-skin redbook-ui">
       <Header p={p} />
       <div className="redbook-top">
         {["关注", "发现", "收藏"].map((t) => (
-          <button
-            key={t}
-            className={tab === t ? "selected" : ""}
-            onClick={() => setTab(t)}
-          >
-            {t}
-          </button>
+          <button key={t} className={tab === t ? "selected" : ""} onClick={() => setTab(t)}>{t}</button>
         ))}
       </div>
       <div className="catalog-scroll">
-        <SearchBox value={q} set={setQ} />
+        <SearchBox value={q} set={(v) => { setQ(v); recordStudyEvent(p, "search", undefined, { value: v }); }} />
         <div className="redbook-masonry">
-          {list.map((i) => (
-            <button key={i.id} onClick={() => p.onItem(i)}>
-              <Media item={i} />
-              <strong>{i.title}</strong>
-              <div>
-                <Avatar name={i.sender} />
-                <small>{i.sender}</small>
-                <Heart size={12} />
-                <small>{i.likes}</small>
-              </div>
-            </button>
-          ))}
+          {list.map((i) => <RedbookCard key={i.id} p={p} item={i} />)}
         </div>
         <Empty items={list} />
       </div>
-      <Tabs
-        tabs={["发现", "收藏"]}
-        value={tab}
-        set={setTab}
-        icons={[<Home />, <Bookmark />]}
-      />
+      <Tabs tabs={["发现", "收藏"]} value={tab} set={setTab} icons={[<Home />, <Bookmark />]} />
     </div>
   );
 }
+function useSavedValue(p: Props, id: string) {
+  const [saved] = useSkinState<boolean>(p, "saved-" + id, false);
+  return saved;
+}
+function RedbookCard({ p, item }: { p: Props; item: Item }) {
+  const [liked, setLiked] = useSkinState<boolean>(p, "liked-" + item.id, false);
+  const [saved, setSaved] = useSkinState<boolean>(p, "saved-" + item.id, false);
+  return (
+    <article className="redbook-study-card" data-study-id={item.id} data-study-title={item.title} data-study-tags={meta(item, "tags")}>
+      <button className="redbook-study-open" onClick={() => { recordStudyEvent(p, "detail_open", item); p.onItem(item); }}>
+        <Media item={item} />
+        <span className="redbook-study-title">{item.title}</span>
+        <p>{item.body}</p>
+      </button>
+      <div className="redbook-study-author">
+        <Avatar name={item.sender} />
+        <span>{item.sender}</span>
+        <small>{item.time.slice(5, 10)}</small>
+      </div>
+      <div className="redbook-study-actions">
+        <button aria-pressed={liked} onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}>
+          <Heart size={15} fill={liked ? "currentColor" : "none"} /> {item.likes + (liked ? 1 : 0)}
+        </button>
+        <button aria-pressed={saved} onClick={() => { setSaved(!saved); recordStudyEvent(p, saved ? "unsave" : "save", item); }}>
+          <Bookmark size={14} fill={saved ? "currentColor" : "none"} /> {saved ? "已收藏" : "收藏"}
+        </button>
+        <button onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>
+          <MessageCircle size={14} /> {item.comments.length}
+        </button>
+      </div>
+    </article>
+  );
+}
+
 export function PinterestSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "发现");
   const [board, setBoard] = useState("");
