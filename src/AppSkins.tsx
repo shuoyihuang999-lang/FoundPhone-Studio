@@ -338,7 +338,7 @@ export function WeChatSkin(p: SkinProps) {
                     aria-label="搜索微信内容"
                     placeholder="搜索"
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(e) => { setQuery(e.target.value); recordStudyEvent(p, "search", undefined, { value: e.target.value }); }}
                   />
                 </label>
               )}
