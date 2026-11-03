@@ -81,7 +81,7 @@ function ItemMedia({ item }: { item: Item }) {
     )
   ) : (
     <div className="skin-photo">
-      <span>{item.title}</span>
+      <span>{item.kind === "audio" ? item.meta.placeholder || "语音消息 · 12″" : item.kind === "video" ? "视频消息" : item.kind === "image" ? "图片消息" : item.title}</span>
     </div>
   );
 }
