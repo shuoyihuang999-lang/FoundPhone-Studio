@@ -748,7 +748,7 @@ export function MymyX(p: SkinProps) {
                       onClick={() => {
                         toggle(i.id, likes, setLikes);
                         p.onUi?.("liked-" + i.id, !isLiked(i.id));
-                        recordStudyEvent(p as Props, isLiked(i.id) ? "like" : "unlike", i);
+                        recordStudyEvent(p as Props, isLiked(i.id) ? "unlike" : "like", i);
                       }}
                     >
                       <Heart fill={isLiked(i.id) ? "#f91880" : "none"} />
@@ -764,7 +764,7 @@ export function MymyX(p: SkinProps) {
                       onClick={() => {
                         toggle(i.id, marks, setMarks);
                         p.onUi?.("saved-" + i.id, !isSaved(i.id));
-                        recordStudyEvent(p as Props, isSaved(i.id) ? "save" : "unsave", i);
+                        recordStudyEvent(p as Props, isSaved(i.id) ? "unsave" : "save", i);
                       }}
                     >
                       <Bookmark />
