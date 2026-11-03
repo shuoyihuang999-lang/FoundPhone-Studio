@@ -94,7 +94,8 @@ export function WeiboSkin(p: Props) {
   useStudyTracking(p);
   const { tab, setTab, q, setQ, items } = useContent(p, "关注");
   const [feed, setFeed] = useState("全部");
-  const list = feed === "全部" ? items : items.filter((i) => i.folder === feed);
+  const feedList = feed === "全部" ? items : items.filter((i) => i.folder === feed);
+  const list = tab === "发现" ? feedList.filter((i) => i.meta.topic === "true") : feedList.filter((i) => i.meta.topic !== "true");
   return (
     <div className="catalog-skin weibo-ui">
       <Header p={p} />
@@ -134,7 +135,9 @@ export function WeiboSkin(p: Props) {
           <article className="weibo-post" key={i.id} data-study-id={i.id} data-study-title={i.title} data-study-tags={meta(i, "tags")}>
             <PostHeader p={p} item={i} />
             <button className="social-body" onClick={() => p.onItem(i)}>
+              <strong className="weibo-topic-title">{i.title}</strong>
               <p>{i.body}</p>
+              {i.meta.heat && <small className="weibo-topic-heat">热度 {i.meta.heat}</small>}
               {i.media && <Media item={i} />}
             </button>
             <WeiboActions p={p} item={i} />
