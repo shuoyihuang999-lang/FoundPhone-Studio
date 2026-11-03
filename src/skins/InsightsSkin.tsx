@@ -6,7 +6,7 @@ import { readStudyEvents, resetStudyEvents } from "./study";
 import "./insights.css";
 
 const names: Record<string,string> = {
-  redbook:"小红书", wechat:"微信", weibo:"微博", twitter:"X"
+  redbook:"小红书", wechat:"微信", weibo:"微博", twitter:"X", douyin:"抖音", tiktok:"TikTok"
 };
 const labels: Record<string,string> = {
   "学业":"学业","职业":"职业","财富":"财富","恋爱":"恋爱","婚姻":"婚姻","生育":"生育",
@@ -34,6 +34,8 @@ export function InsightsSkin(p: Props) {
     return [...map.entries()].sort((a,b)=>b[1].views-a[1].views);
   },[events]);
   const totalDwell = events.filter(e=>e.type==="item_dwell").reduce((s,e)=>s+(e.durationMs||0),0);
+  const viewedIds = events.filter(e=>e.type==="item_view" && e.itemId).map(e=>e.itemId as string);
+  const repeatCount = viewedIds.length - new Set(viewedIds).size;
   const top=(key:"views"|"likes"|"saves"|"dwell")=>[...tagStats].sort((a,b)=>b[1][key]-a[1][key])[0]?.[0]||"暂无记录";
   const max=Math.max(1,...tagStats.map(([,v])=>v.views));
   const apps=[...new Set(events.map(e=>e.appId))].filter(a=>names[a]);
@@ -45,7 +47,7 @@ export function InsightsSkin(p: Props) {
         <div><Eye/><strong>{count("item_view")}</strong><small>浏览内容</small></div>
         <div><Heart/><strong>{count("like")}</strong><small>点赞次数</small></div>
         <div><Bookmark/><strong>{count("save")}</strong><small>收藏次数</small></div>
-        <div><Clock3/><strong>{Math.round(totalDwell/60000)} 分</strong><small>内容停留</small></div>
+        <div><Clock3/><strong>{Math.round(totalDwell/60000)} 分</strong><small>内容停留</small></div><div><Eye/><strong>{repeatCount}</strong><small>重复浏览</small></div>
       </div>
       <section className="insights-section"><h2>不同内容类型的浏览偏好</h2>
         {tagStats.length?tagStats.map(([tag,v])=><div className="insights-bar" key={tag}><div><span>{labels[tag]||tag}</span><small>{v.views} 次浏览</small></div><i><b style={{width:(v.views/max*100)+"%"}}/></i></div>):<p className="insights-empty">开始浏览社交平台后，这里会逐步生成你的内容关注分布。</p>}
