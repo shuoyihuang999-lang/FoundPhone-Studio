@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { BarChart3, RotateCcw, Eye, Heart, Bookmark, Clock3, Sparkles } from "lucide-react";
+import { RotateCcw, Eye, Heart, Bookmark, Clock3, Sparkles } from "lucide-react";
 import type { Props } from "./shared";
 import { Header } from "./shared";
 import { readStudyEvents, resetStudyEvents } from "./study";
