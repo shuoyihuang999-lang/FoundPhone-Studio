@@ -66,6 +66,7 @@ export function SocialDetail(p: {
   const submit = () => {
     if (!draft.trim()) return;
     setExtra([...extra, (p.owner || "机主") + "：" + draft.trim()]);
+    recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, "comment_submit", item);
     setDraft("");
     setTarget("");
     setTab("评论");
