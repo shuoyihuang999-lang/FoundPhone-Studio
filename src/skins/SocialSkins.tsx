@@ -71,11 +71,11 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
   const [liked, setLiked] = useSkinState<boolean>(p, `liked-${item.id}`, false);
   return (
     <div className="social-actions weibo-actions">
-      <button aria-label={`转发${item.title}`} onClick={() => p.onItem(item)}>
+      <button aria-label={`转发${item.title}`} onClick={() => { recordStudyEvent(p, "repost", item); p.onItem(item); }}>
         <Share2 size={17} />
         {meta(item, "reposts", "转发")}
       </button>
-      <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
+      <button aria-label={`评论${item.title}`} onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>
         <MessageCircle size={17} />
         {item.comments.length || "评论"}
       </button>
