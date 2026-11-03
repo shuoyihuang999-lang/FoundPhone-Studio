@@ -1,9 +1,8 @@
 import * as React from "react";
 import type { Props } from "./shared";
-import type { UiValue } from "../schema";
 export type StudyEvent = { type: string; appId: string; itemId?: string; title?: string; tags?: string[]; at: number; durationMs?: number; value?: string };
 const eventCache: { events: StudyEvent[] } = { events: [] };
-export function recordStudyEvent(p: Pick<Props, "appId" | "ui" | "onUi">, type: string, item?: { id?: string; title?: string; meta?: Record<string, string> }, extra: { durationMs?: number; value?: string } = {}) {
+export function recordStudyEvent(p: Pick<Props, "appId">, type: string, item?: { id?: string; title?: string; meta?: Record<string, string> }, extra: { durationMs?: number; value?: string } = {}) {
   let events = eventCache.events;
   if (!events.length) {
     try {
@@ -15,7 +14,6 @@ export function recordStudyEvent(p: Pick<Props, "appId" | "ui" | "onUi">, type: 
   const next = [...events, { type, appId: p.appId || "unknown", itemId: item?.id, title: item?.title, tags, at: Date.now(), ...extra }].slice(-3000);
   eventCache.events = next;
   try { if (typeof localStorage !== "undefined") localStorage.setItem("foundphone-study-events", JSON.stringify(next)); } catch { /* storage may be disabled */ }
-  p.onUi?.("studyEvents", JSON.stringify(next) as UiValue);
 }
 export function resetStudyEvents() {
   eventCache.events = [];
