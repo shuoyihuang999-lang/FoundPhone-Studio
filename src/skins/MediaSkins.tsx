@@ -30,6 +30,7 @@ import {
   useContent,
   type Props,
 } from "./shared";
+import { recordStudyEvent, useStudyTracking } from "./study";
 function TrackPlayer({
   item,
   p,
@@ -41,7 +42,7 @@ function TrackPlayer({
 }) {
   return (
     <div className="track-player">
-      <button onClick={() => p.onItem(item)}>
+      <button onClick={() => { recordStudyEvent(p, "detail_open", item); p.onItem(item); }}>
         <Music size={20} />
         <span>
           {item.title}
@@ -361,7 +362,7 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
   const [liked, setLiked] = useSkinState<boolean>(p, `liked-${item.id}`, false),
     [saved, setSaved] = useSkinState<boolean>(p, `saved-${item.id}`, false);
   return (
-    <article className="vertical-video">
+    <article className="vertical-video" data-study-id={item.id} data-study-title={item.title} data-study-tags={meta(item, "tags")}>
       <Media item={item} />
       <div className="vertical-actions">
         <button
@@ -372,18 +373,18 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
         </button>
         <button
           aria-label={`喜欢${item.title}`}
-          onClick={() => setLiked(!liked)}
+          onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}
         >
           <Heart size={29} fill={liked ? "#f44368" : "white"} />
           <small>{item.likes + (liked ? 1 : 0)}</small>
         </button>
-        <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
+        <button aria-label={`评论${item.title}`} onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>
           <MessageCircle size={29} />
           <small>{item.comments.length}</small>
         </button>
         <button
           aria-label={`收藏${item.title}`}
-          onClick={() => setSaved(!saved)}
+          onClick={() => { setSaved(!saved); recordStudyEvent(p, saved ? "unsave" : "save", item); }}
         >
           <Bookmark size={27} fill={saved ? "#f8cc55" : "none"} />
         </button>
@@ -400,6 +401,7 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
   );
 }
 export function DouyinSkin(p: Props) {
+  useStudyTracking(p);
   const { tab, setTab, items } = useContent(p, "推荐");
   const list = tab === "推荐" ? items : items.filter((i) => i.folder === tab);
   return (
@@ -432,6 +434,7 @@ export function DouyinSkin(p: Props) {
   );
 }
 export function TikTokSkin(p: Props) {
+  useStudyTracking(p);
   const { tab, setTab, items } = useContent(p, "For You");
   const list =
     tab === "For You"

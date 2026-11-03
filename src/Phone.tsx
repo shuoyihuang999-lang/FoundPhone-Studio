@@ -64,6 +64,7 @@ import {
 } from "./schema";
 import { dispatch, choose, visible, advance } from "./engine";
 import { db } from "./persistence";
+import { recordStudyEvent } from "./skins/study";
 export function AppIcon({
   id,
   name,
@@ -889,6 +890,7 @@ function AppContent({
   const [unlocks, setUnlocks] = useState<string[]>([]);
   const [pwError, setPwError] = useState("");
   const [likes, setLikes] = useState<string[]>([]);
+  const [commentDraft, setCommentDraft] = useState("");
   const shown = items
     .filter((i) => creator || visible(i, state))
     .filter((i) =>
@@ -905,6 +907,7 @@ function AppContent({
       onEdit(i);
       return;
     }
+    recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, app.id === "weibo" && i.meta.topic === "true" ? "topic_open" : "detail_open", i);
     setDetail(i);
     if (!i.password || unlocks.includes(i.id)) onRead(i.id);
   };
@@ -920,6 +923,17 @@ function AppContent({
       : app.id === "whatsapp"
         ? WhatsAppSkin
         : (catalogSkins[app.id as keyof typeof catalogSkins] ?? null);
+  const detailComments = detail
+    ? [...detail.comments, ...((state.ui?.[app.id]?.["comments-" + detail.id] as string[] | undefined) ?? [])]
+    : [];
+  const submitDetailComment = () => {
+    if (!detail || !commentDraft.trim()) return;
+    const key = "comments-" + detail.id;
+    const previous = (state.ui?.[app.id]?.[key] as string[] | undefined) ?? [];
+    onUi?.(key, [...previous, work.phone.owner + "：" + commentDraft.trim()]);
+    recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, "comment_submit", detail);
+    setCommentDraft("");
+  };
   const detailView = detail ? (
     <div className="phone-content detail-content">
       {detail.password && !creator && !unlocks.includes(detail.id) ? (
@@ -971,11 +985,15 @@ function AppContent({
               {detail.folder}
             </span>
           )}
-          {detail.comments.map((c, i) => (
-            <p key={i} className="comment">
-              {c}
-            </p>
+          {detailComments.map((c, i) => (
+            <p key={i} className="comment">{c}</p>
           ))}
+          {(app.id === "wechat" || app.id === "douyin") && (
+            <form className="detail-comment-compose" onSubmit={(e) => { e.preventDefault(); submitDetailComment(); }}>
+              <input aria-label="发表评论" placeholder="说点什么…" value={commentDraft} onChange={(e) => setCommentDraft(e.target.value)} />
+              <button disabled={!commentDraft.trim()}>发送</button>
+            </form>
+          )}
         </>
       )}
     </div>
@@ -1126,7 +1144,10 @@ function AppContent({
               <input
                 placeholder={`搜索${name}`}
                 value={q}
-                onChange={(e) => setQ(e.target.value)}
+                onChange={(e) => {
+                  setQ(e.target.value);
+                  recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, "search", undefined, { value: e.target.value });
+                }}
               />
             </div>
           )}
@@ -1139,6 +1160,7 @@ function AppContent({
                   className="contact-row"
                   key={t}
                   onClick={() => {
+                    recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, "chat_open", { id: t, title: t, meta: { tags: "聊天,社交" } });
                     setThread(t);
                     onRead(t);
                   }}

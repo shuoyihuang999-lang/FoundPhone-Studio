@@ -40,6 +40,7 @@ export const catalogSkins = {
   weibo: skin(social, "WeiboSkin"),
   twitter: skin(mymy, "MymyX"),
   threads: skin(() => import("./ThreadsReference"), "ThreadsReference"),
+  insights: skin(() => import("./InsightsSkin"), "InsightsSkin"),
   facebook: skin(social, "FacebookSkin"),
   redbook: skin(social, "RedbookSkin"),
   pinterest: skin(social, "PinterestSkin"),

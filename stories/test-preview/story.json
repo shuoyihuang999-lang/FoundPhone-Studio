@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "测试预览",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 2,
+  "revision": 3,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -85,7 +85,16 @@
     "netflix",
     "pinterest",
     "threads",
-    "kakao"
+    "kakao",
+    {
+      "id": "insights",
+      "name": "浏览画像",
+      "installed": true,
+      "visible": true,
+      "dock": false,
+      "folder": "",
+      "icon": ""
+    }
   ],
   "contacts": [
     {
@@ -690,6 +699,19 @@
         "id": "test-appstore",
         "title": "测试内容",
         "body": "这是一条测试内容。"
+      }
+    ],
+    "insights": [
+      {
+        "id": "insights-test-preview",
+        "title": "浏览画像",
+        "body": "体验模拟内容后，可以在这里查看本地浏览行为画像。",
+        "time": "2026-11-03 19:42",
+        "sender": "系统",
+        "kind": "note",
+        "meta": {
+          "tags": "分析,浏览画像"
+        }
       }
     ]
   },

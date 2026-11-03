@@ -28,6 +28,8 @@ import {
 import type { SkinProps } from "../../AppSkins";
 import { Avatar, Media } from "../../skins/shared";
 import { useSkinState } from "../../skinState";
+import { recordStudyEvent, useStudyTracking } from "../../skins/study";
+import type { Props } from "../../skins/shared";
 import { makeItem, type Item } from "../../schema";
 import "./ui.css";
 import "./adapter.css";
@@ -638,6 +640,7 @@ export function MymyInstagram(p: SkinProps) {
   );
 }
 export function MymyX(p: SkinProps) {
+  useStudyTracking(p as Props);
   const [dark, setDark] = useSkinState<boolean>(p, "x-dark", true);
   const [tab, setTab] = useSkinState<string>(p, "mymyTab", "推荐"),
     [likes, setLikes] = useSkinState<string[]>(p, "mymyXLikes", []),
@@ -685,15 +688,15 @@ export function MymyX(p: SkinProps) {
             className="mymy-search"
             aria-label="搜索X"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => { setQuery(e.target.value); recordStudyEvent(p as Props, "search", undefined, { value: e.target.value }); }}
             placeholder="搜索"
           />
         )}
         <div className="kzxfd">
           {p.items
-            .filter((i) => (i.title + i.body).includes(query))
+            .filter((i) => (i.title + i.body).includes(query) && (tab !== "正在关注" || i.folder === "正在关注"))
             .map((i) => (
-              <article className="kzxt" key={i.id}>
+              <article className="kzxt" key={i.id} data-study-id={i.id} data-study-title={i.title} data-study-tags={i.meta.tags || ""}>
                 <Avatar name={i.sender} src={i.avatar} />
                 <div className="kzxb">
                   <div className="kzxn">
@@ -718,7 +721,7 @@ export function MymyX(p: SkinProps) {
                     <button
                       className="kzxv"
                       aria-label="打开媒体"
-                      onClick={() => p.onItem(i)}
+                      onClick={() => { recordStudyEvent(p as Props, "comments_open", i); p.onItem(i); }}
                     >
                       <Media item={i} />
                     </button>
@@ -745,6 +748,7 @@ export function MymyX(p: SkinProps) {
                       onClick={() => {
                         toggle(i.id, likes, setLikes);
                         p.onUi?.("liked-" + i.id, !isLiked(i.id));
+                        recordStudyEvent(p as Props, isLiked(i.id) ? "unlike" : "like", i);
                       }}
                     >
                       <Heart fill={isLiked(i.id) ? "#f91880" : "none"} />
@@ -760,6 +764,7 @@ export function MymyX(p: SkinProps) {
                       onClick={() => {
                         toggle(i.id, marks, setMarks);
                         p.onUi?.("saved-" + i.id, !isSaved(i.id));
+                        recordStudyEvent(p as Props, isSaved(i.id) ? "unsave" : "save", i);
                       }}
                     >
                       <Bookmark />

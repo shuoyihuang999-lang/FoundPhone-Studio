@@ -1,5 +1,7 @@
 import { NativeComposer } from "./DeviceSystem";
 import { useSkinState } from "./skinState";
+import { recordStudyEvent, useStudyTracking } from "./skins/study";
+import "./skins/insights.css";
 import { useState } from "react";
 import {
   ChevronLeft,
@@ -79,7 +81,7 @@ function ItemMedia({ item }: { item: Item }) {
     )
   ) : (
     <div className="skin-photo">
-      <span>{item.title}</span>
+      <span>{item.kind === "audio" ? item.meta.placeholder || "语音消息 · 12″" : item.kind === "video" ? "视频消息" : item.kind === "image" ? "图片消息" : item.title}</span>
     </div>
   );
 }
@@ -151,7 +153,31 @@ function Compose({
     </div>
   );
 }
+function MomentCard({ p, item }: { p: SkinProps; item: Item }) {
+  const [liked, setLiked] = useSkinState<boolean>(p, "moment-liked-" + item.id, false);
+  return (
+    <article className="wx-study-moment" data-study-id={item.id} data-study-title={item.title} data-study-tags={item.meta?.tags || ""}>
+      <div className="wx-moment-post">
+        <Avatar name={item.sender} />
+        <div className="wx-moment-main">
+          <strong>{item.sender}</strong>
+          <button className="wx-moment-open" onClick={() => { recordStudyEvent(p, "detail_open", item); p.onItem(item); }}>
+            <p>{item.body}</p>
+            {item.media && <ItemMedia item={item} />}
+          </button>
+          <small>{item.time}</small>
+          <div className="wx-moment-social">
+            <button aria-pressed={liked} onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}>♥ {item.likes + (liked ? 1 : 0)}</button>
+            <button onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>评论 {item.comments.length}</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export function WeChatSkin(p: SkinProps) {
+  useStudyTracking(p);
   const [tab, setTab] = useState("微信"),
     [query, setQuery] = useState(""),
     [moments, setMoments] = useState(false),
@@ -292,19 +318,7 @@ export function WeChatSkin(p: SkinProps) {
             <span>朋友圈</span>
           </div>
           {posts.map((i) => (
-            <button
-              key={i.id}
-              className="wx-moment-post"
-              onClick={() => p.onItem(i)}
-            >
-              <Avatar name={i.sender} />
-              <div>
-                <strong>{i.sender}</strong>
-                <p>{i.body}</p>
-                {i.media && <ItemMedia item={i} />}
-                <small>{i.time}</small>
-              </div>
-            </button>
+            <MomentCard key={i.id} p={p} item={i} />
           ))}
           {!posts.length && <p className="skin-empty">暂无朋友圈动态</p>}
           {p.creator && (
@@ -324,7 +338,7 @@ export function WeChatSkin(p: SkinProps) {
                     aria-label="搜索微信内容"
                     placeholder="搜索"
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(e) => { setQuery(e.target.value); recordStudyEvent(p, "search", undefined, { value: e.target.value }); }}
                   />
                 </label>
               )}
@@ -345,6 +359,7 @@ export function WeChatSkin(p: SkinProps) {
                       key={t}
                       onClick={() => {
                         setReadThreads((v) => (v.includes(t) ? v : [...v, t]));
+                        recordStudyEvent(p, "chat_open", p.items.find((i) => i.title === t) || { id: t, title: t, meta: { tags: "聊天,社交" } });
                         p.onThread(t);
                         p.onRead(t);
                       }}

@@ -28,6 +28,7 @@ import {
   Headphones,
   Film,
   Pin,
+  BarChart3,
   AtSign,
   Send,
   Tv,
@@ -178,6 +179,7 @@ const definitions: [
   ],
   ["appstore", "App Store", "system", "#087cff", ShoppingBag, ["搜索"]],
   ["threads", "Threads", "social", "#4d5150", AtSign, ["动态", "回复"]],
+  ["insights", "浏览画像", "document", "#6387a8", BarChart3, ["画像", "记录"]],
 ];
 export const registry: AppPlugin[] = definitions.map(
   ([id, name, engine, color, icon, tabs]) => ({

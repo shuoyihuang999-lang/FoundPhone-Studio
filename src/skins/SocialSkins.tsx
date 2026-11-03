@@ -19,6 +19,8 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import type { Item } from "../schema";
+import { recordStudyEvent, useStudyTracking } from "./study";
+import "./insights.css";
 import {
   Avatar,
   Empty,
@@ -36,19 +38,19 @@ function Actions({ p, item }: { p: Props; item: Item }) {
     [saved, setSaved] = useSkinState<boolean>(p, `saved-${item.id}`, false);
   return (
     <div className="social-actions">
-      <button aria-label={`喜欢${item.title}`} onClick={() => setLiked(!liked)}>
+      <button aria-label={`喜欢${item.title}`} onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}>
         <Heart size={17} fill={liked ? "currentColor" : "none"} />
         {item.likes + (liked ? 1 : 0) || ""}
       </button>
-      <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
+      <button aria-label={`评论${item.title}`} onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>
         <MessageCircle size={17} />
         {item.comments.length || ""}
       </button>
-      <button aria-label={`详情${item.title}`} onClick={() => p.onItem(item)}>
+      <button aria-label={`详情${item.title}`} onClick={() => { recordStudyEvent(p, "detail_open", item); p.onItem(item); }}>
         <Repeat2 size={17} />
         {meta(item, "reposts")}
       </button>
-      <button aria-label={`收藏${item.title}`} onClick={() => setSaved(!saved)}>
+      <button aria-label={`收藏${item.title}`} onClick={() => { setSaved(!saved); recordStudyEvent(p, saved ? "unsave" : "save", item); }}>
         <Bookmark size={16} fill={saved ? "currentColor" : "none"} />
       </button>
     </div>
@@ -69,18 +71,18 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
   const [liked, setLiked] = useSkinState<boolean>(p, `liked-${item.id}`, false);
   return (
     <div className="social-actions weibo-actions">
-      <button aria-label={`转发${item.title}`} onClick={() => p.onItem(item)}>
+      <button aria-label={`转发${item.title}`} onClick={() => { recordStudyEvent(p, "repost", item); p.onItem(item); }}>
         <Share2 size={17} />
         {meta(item, "reposts", "转发")}
       </button>
-      <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
+      <button aria-label={`评论${item.title}`} onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>
         <MessageCircle size={17} />
         {item.comments.length || "评论"}
       </button>
       <button
         aria-label={`喜欢${item.title}`}
         aria-pressed={liked}
-        onClick={() => setLiked(!liked)}
+        onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}
       >
         <ThumbsUp size={17} fill={liked ? "currentColor" : "none"} />
         {item.likes + (liked ? 1 : 0) || "赞"}
@@ -89,9 +91,11 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
   );
 }
 export function WeiboSkin(p: Props) {
+  useStudyTracking(p);
   const { tab, setTab, q, setQ, items } = useContent(p, "关注");
   const [feed, setFeed] = useState("全部");
-  const list = feed === "全部" ? items : items.filter((i) => i.folder === feed);
+  const feedList = feed === "全部" ? items : items.filter((i) => i.folder === feed);
+  const list = feed === "热搜" ? feedList.filter((i) => i.meta.topic === "true") : feed === "关注" ? feedList.filter((i) => i.meta.topic !== "true") : tab === "发现" ? feedList.filter((i) => i.meta.topic === "true") : feedList.filter((i) => i.meta.topic !== "true");
   return (
     <div className="catalog-skin weibo-ui">
       <Header p={p} />
@@ -115,7 +119,7 @@ export function WeiboSkin(p: Props) {
           </div>
         ) : (
           <>
-            <SearchBox value={q} set={setQ} />
+            <SearchBox value={q} set={(v) => { setQ(v); recordStudyEvent(p, "search", undefined, { value: v }); }} />
             <div className="weibo-feed-filter">
               {["全部", ...groupItems(items).filter((g) => g !== "未分类")].map(
                 (g) => (
@@ -128,10 +132,12 @@ export function WeiboSkin(p: Props) {
           </>
         )}
         {list.map((i) => (
-          <article className="weibo-post" key={i.id}>
+          <article className="weibo-post" key={i.id} data-study-id={i.id} data-study-title={i.title} data-study-tags={meta(i, "tags")}>
             <PostHeader p={p} item={i} />
             <button className="social-body" onClick={() => p.onItem(i)}>
+              <strong className="weibo-topic-title">{i.title}</strong>
               <p>{i.body}</p>
+              {i.meta.heat && <small className="weibo-topic-heat">热度 {i.meta.heat}</small>}
               {i.media && <Media item={i} />}
             </button>
             <WeiboActions p={p} item={i} />
@@ -143,6 +149,7 @@ export function WeiboSkin(p: Props) {
   );
 }
 export function XSkin(p: Props) {
+  useStudyTracking(p);
   const { tab, setTab, q, setQ, items } = useContent(p, "为你推荐");
   return (
     <div className="catalog-skin x-ui">
@@ -166,7 +173,7 @@ export function XSkin(p: Props) {
         {items
           .filter((i) => tab === "为你推荐" || i.folder === "正在关注")
           .map((i) => (
-            <article className="x-post" key={i.id}>
+            <article className="x-post" key={i.id} data-study-id={i.id} data-study-title={i.title} data-study-tags={meta(i, "tags")}>
               <Avatar name={i.sender} />
               <div>
                 <button className="x-byline" onClick={() => p.onItem(i)}>
@@ -326,54 +333,62 @@ export function FacebookSkin(p: Props) {
   );
 }
 export function RedbookSkin(p: Props) {
+  useStudyTracking(p);
   const { tab, setTab, q, setQ, items } = useContent(p, "发现");
-  const list =
-    tab === "收藏"
-      ? items.filter((i) => i.favorite)
-      : tab === "关注"
-        ? items.filter((i) => i.folder === "关注")
-        : items;
+  const list = tab === "收藏"
+    ? items.filter((i) => p.ui?.["saved-" + i.id] === true)
+    : tab === "关注"
+      ? items.filter((i) => i.folder === "关注")
+      : items;
   return (
     <div className="catalog-skin redbook-ui">
       <Header p={p} />
       <div className="redbook-top">
         {["关注", "发现", "收藏"].map((t) => (
-          <button
-            key={t}
-            className={tab === t ? "selected" : ""}
-            onClick={() => setTab(t)}
-          >
-            {t}
-          </button>
+          <button key={t} className={tab === t ? "selected" : ""} onClick={() => setTab(t)}>{t}</button>
         ))}
       </div>
       <div className="catalog-scroll">
-        <SearchBox value={q} set={setQ} />
+        <SearchBox value={q} set={(v) => { setQ(v); recordStudyEvent(p, "search", undefined, { value: v }); }} />
         <div className="redbook-masonry">
-          {list.map((i) => (
-            <button key={i.id} onClick={() => p.onItem(i)}>
-              <Media item={i} />
-              <strong>{i.title}</strong>
-              <div>
-                <Avatar name={i.sender} />
-                <small>{i.sender}</small>
-                <Heart size={12} />
-                <small>{i.likes}</small>
-              </div>
-            </button>
-          ))}
+          {list.map((i) => <RedbookCard key={i.id} p={p} item={i} />)}
         </div>
         <Empty items={list} />
       </div>
-      <Tabs
-        tabs={["发现", "收藏"]}
-        value={tab}
-        set={setTab}
-        icons={[<Home />, <Bookmark />]}
-      />
+      <Tabs tabs={["发现", "收藏"]} value={tab} set={setTab} icons={[<Home />, <Bookmark />]} />
     </div>
   );
 }
+function RedbookCard({ p, item }: { p: Props; item: Item }) {
+  const [liked, setLiked] = useSkinState<boolean>(p, "liked-" + item.id, false);
+  const [saved, setSaved] = useSkinState<boolean>(p, "saved-" + item.id, false);
+  return (
+    <article className="redbook-study-card" data-study-id={item.id} data-study-title={item.title} data-study-tags={meta(item, "tags")}>
+      <button className="redbook-study-open" onClick={() => { recordStudyEvent(p, "detail_open", item); p.onItem(item); }}>
+        <Media item={item} />
+        <span className="redbook-study-title">{item.title}</span>
+        <p>{item.body}</p>
+      </button>
+      <div className="redbook-study-author">
+        <Avatar name={item.sender} />
+        <span>{item.sender}</span>
+        <small>{item.time.slice(5, 10)}</small>
+      </div>
+      <div className="redbook-study-actions">
+        <button aria-pressed={liked} onClick={() => { setLiked(!liked); recordStudyEvent(p, liked ? "unlike" : "like", item); }}>
+          <Heart size={15} fill={liked ? "currentColor" : "none"} /> {item.likes + (liked ? 1 : 0)}
+        </button>
+        <button aria-pressed={saved} onClick={() => { setSaved(!saved); recordStudyEvent(p, saved ? "unsave" : "save", item); }}>
+          <Bookmark size={14} fill={saved ? "currentColor" : "none"} /> {saved ? "已收藏" : "收藏"}
+        </button>
+        <button onClick={() => { recordStudyEvent(p, "comments_open", item); p.onItem(item); }}>
+          <MessageCircle size={14} /> {item.comments.length}
+        </button>
+      </div>
+    </article>
+  );
+}
+
 export function PinterestSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "发现");
   const [board, setBoard] = useState("");

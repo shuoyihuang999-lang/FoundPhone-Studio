@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { recordStudyEvent } from "./study";
 import {
   ChevronLeft,
   MoreHorizontal,
@@ -23,7 +24,7 @@ import { RichText } from "../RichText";
 import { Avatar, Media, meta } from "./shared";
 import type { Item, UiValue } from "../schema";
 import "./social-details.css";
-export const socialDetailApps = new Set(["twitter", "weibo"]);
+export const socialDetailApps = new Set(["twitter", "weibo", "redbook"]);
 const count = (n: number) =>
   n >= 10000 ? (n / 10000).toFixed(1).replace(/\.0$/, "") + "w" : String(n);
 export function SocialDetail(p: {
@@ -35,7 +36,9 @@ export function SocialDetail(p: {
   onUi?: (key: string, value: UiValue) => void;
 }) {
   const { item } = p,
-    weibo = p.app === "weibo";
+    weibo = p.app === "weibo",
+    redbook = p.app === "redbook";
+  useEffect(() => { recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, "detail_view", item); }, [p.app, item.id]);
   const [liked, setLiked] = useSkinState<boolean>(p, "liked-" + item.id, false),
     [saved, setSaved] = useSkinState<boolean>(p, "saved-" + item.id, false),
     [followed, setFollowed] = useSkinState<boolean>(
@@ -63,13 +66,14 @@ export function SocialDetail(p: {
   const submit = () => {
     if (!draft.trim()) return;
     setExtra([...extra, (p.owner || "机主") + "：" + draft.trim()]);
+    recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, "comment_submit", item);
     setDraft("");
     setTarget("");
     setTab("评论");
   };
   const actions = (
     <div className="post-detail-actions">
-      <button aria-label="查看评论" onClick={() => setTab("评论")}>
+      <button aria-label="查看评论" onClick={() => { setTab("评论"); recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, "comments_open", item); }}>
         <MessageCircle />
         {count(comments.length)}
       </button>
@@ -80,7 +84,7 @@ export function SocialDetail(p: {
       <button
         aria-label="喜欢帖子"
         aria-pressed={liked}
-        onClick={() => setLiked(!liked)}
+        onClick={() => { setLiked(!liked); recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, liked ? "unlike" : "like", item); }}
       >
         <Heart
           fill={liked ? "#f91880" : "none"}
@@ -91,7 +95,7 @@ export function SocialDetail(p: {
       <button
         aria-label="收藏帖子"
         aria-pressed={saved}
-        onClick={() => setSaved(!saved)}
+        onClick={() => { setSaved(!saved); recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, saved ? "unsave" : "save", item); }}
       >
         <Bookmark fill={saved ? "currentColor" : "none"} />
         {saved ? "1" : "0"}
@@ -107,15 +111,17 @@ export function SocialDetail(p: {
         "app-post-detail " +
         (weibo
           ? "weibo-post-detail"
-          : "x-post-detail" +
-            (p.ui?.["x-dark"] !== false ? " x-reference-dark" : ""))
+          : redbook
+            ? "x-post-detail redbook-post-detail"
+            : "x-post-detail" +
+              (p.ui?.["x-dark"] !== false ? " x-reference-dark" : ""))
       }
     >
       <header className="post-detail-nav">
         <button aria-label="返回帖子列表" onClick={p.back}>
           <ChevronLeft size={27} />
         </button>
-        <strong>{weibo ? "微博正文" : "帖子"}</strong>
+        <strong>{weibo ? "微博正文" : redbook ? "笔记详情" : "帖子"}</strong>
         <div>
           {weibo && <Headphones size={23} />}
           <button aria-label="帖子更多选项" onClick={() => setMenu(!menu)}>
@@ -268,7 +274,7 @@ export function SocialDetail(p: {
           <Send size={20} />
         </button>
       </form>
-      {!weibo && (
+      {!weibo && !redbook && (
         <nav className="x-detail-bottom">
           {[Home, Search, Circle, Bell, MessageCircle].map((Icon, n) => (
             <button
