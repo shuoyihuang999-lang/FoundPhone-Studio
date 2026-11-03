@@ -95,7 +95,7 @@ export function WeiboSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "关注");
   const [feed, setFeed] = useState("全部");
   const feedList = feed === "全部" ? items : items.filter((i) => i.folder === feed);
-  const list = tab === "发现" ? feedList.filter((i) => i.meta.topic === "true") : feedList.filter((i) => i.meta.topic !== "true");
+  const list = feed === "热搜" ? feedList.filter((i) => i.meta.topic === "true") : feed === "关注" ? feedList.filter((i) => i.meta.topic !== "true") : tab === "发现" ? feedList.filter((i) => i.meta.topic === "true") : feedList.filter((i) => i.meta.topic !== "true");
   return (
     <div className="catalog-skin weibo-ui">
       <Header p={p} />
