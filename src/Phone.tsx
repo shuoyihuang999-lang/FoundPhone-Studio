@@ -64,6 +64,7 @@ import {
 } from "./schema";
 import { dispatch, choose, visible, advance } from "./engine";
 import { db } from "./persistence";
+import { recordStudyEvent } from "./skins/study";
 export function AppIcon({
   id,
   name,
@@ -905,6 +906,7 @@ function AppContent({
       onEdit(i);
       return;
     }
+    recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, "detail_open", i);
     setDetail(i);
     if (!i.password || unlocks.includes(i.id)) onRead(i.id);
   };
@@ -1126,7 +1128,10 @@ function AppContent({
               <input
                 placeholder={`搜索${name}`}
                 value={q}
-                onChange={(e) => setQ(e.target.value)}
+                onChange={(e) => {
+                  setQ(e.target.value);
+                  recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, "search", undefined, { value: e.target.value });
+                }}
               />
             </div>
           )}
@@ -1139,6 +1144,7 @@ function AppContent({
                   className="contact-row"
                   key={t}
                   onClick={() => {
+                    recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, "chat_open", { id: t, title: t, meta: { tags: "聊天,社交" } });
                     setThread(t);
                     onRead(t);
                   }}
