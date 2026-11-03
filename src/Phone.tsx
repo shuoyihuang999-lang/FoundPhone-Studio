@@ -923,6 +923,17 @@ function AppContent({
       : app.id === "whatsapp"
         ? WhatsAppSkin
         : (catalogSkins[app.id as keyof typeof catalogSkins] ?? null);
+  const detailComments = detail
+    ? [...detail.comments, ...((state.ui?.[app.id]?.["comments-" + detail.id] as string[] | undefined) ?? [])]
+    : [];
+  const submitDetailComment = () => {
+    if (!detail || !commentDraft.trim()) return;
+    const key = "comments-" + detail.id;
+    const previous = (state.ui?.[app.id]?.[key] as string[] | undefined) ?? [];
+    onUi?.(key, [...previous, work.phone.owner + "：" + commentDraft.trim()]);
+    recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, "comment_submit", detail);
+    setCommentDraft("");
+  };
   const detailView = detail ? (
     <div className="phone-content detail-content">
       {detail.password && !creator && !unlocks.includes(detail.id) ? (
