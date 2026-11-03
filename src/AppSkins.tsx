@@ -359,7 +359,7 @@ export function WeChatSkin(p: SkinProps) {
                       key={t}
                       onClick={() => {
                         setReadThreads((v) => (v.includes(t) ? v : [...v, t]));
-                        recordStudyEvent(p as never, "chat_open", { id: t, title: t, meta: { tags: "聊天,社交" } });
+                        recordStudyEvent(p, "chat_open", p.items.find((i) => i.title === t) || { id: t, title: t, meta: { tags: "聊天,社交" } });
                         p.onThread(t);
                         p.onRead(t);
                       }}
