@@ -985,11 +985,15 @@ function AppContent({
               {detail.folder}
             </span>
           )}
-          {detail.comments.map((c, i) => (
-            <p key={i} className="comment">
-              {c}
-            </p>
+          {detailComments.map((c, i) => (
+            <p key={i} className="comment">{c}</p>
           ))}
+          {app.id === "wechat" && (
+            <form className="detail-comment-compose" onSubmit={(e) => { e.preventDefault(); submitDetailComment(); }}>
+              <input aria-label="发表朋友圈评论" placeholder="说点什么…" value={commentDraft} onChange={(e) => setCommentDraft(e.target.value)} />
+              <button disabled={!commentDraft.trim()}>发送</button>
+            </form>
+          )}
         </>
       )}
     </div>
