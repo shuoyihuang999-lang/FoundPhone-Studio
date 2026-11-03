@@ -890,6 +890,7 @@ function AppContent({
   const [unlocks, setUnlocks] = useState<string[]>([]);
   const [pwError, setPwError] = useState("");
   const [likes, setLikes] = useState<string[]>([]);
+  const [commentDraft, setCommentDraft] = useState("");
   const shown = items
     .filter((i) => creator || visible(i, state))
     .filter((i) =>
