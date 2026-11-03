@@ -906,7 +906,7 @@ function AppContent({
       onEdit(i);
       return;
     }
-    recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, "detail_open", i);
+    recordStudyEvent({ appId: app.id, ui: state.ui?.[app.id], onUi }, app.id === "weibo" && i.meta.topic === "true" ? "topic_open" : "detail_open", i);
     setDetail(i);
     if (!i.password || unlocks.includes(i.id)) onRead(i.id);
   };
