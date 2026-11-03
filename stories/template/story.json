@@ -153,7 +153,9 @@
           "senderId": "wx-friend-0",
           "time": "2026-11-03 09:10",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,职业,成功"
+          }
         },
         {
           "id": "wx-chat-0-msg-1",
@@ -161,7 +163,9 @@
           "senderId": "owner",
           "time": "2026-11-03 09:17",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,职业,成功"
+          }
         },
         {
           "id": "wx-chat-0-msg-2",
@@ -169,7 +173,9 @@
           "senderId": "wx-friend-0",
           "time": "2026-11-03 09:24",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,职业,成功"
+          }
         },
         {
           "id": "wx-chat-0-msg-3",
@@ -177,7 +183,9 @@
           "senderId": "owner",
           "time": "2026-11-03 09:31",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,职业,成功"
+          }
         },
         {
           "id": "wx-chat-0-msg-4",
@@ -185,7 +193,9 @@
           "senderId": "wx-friend-0",
           "time": "2026-11-03 09:38",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,职业,成功"
+          }
         }
       ]
     },
@@ -204,7 +214,9 @@
           "senderId": "wx-friend-1",
           "time": "2026-11-03 10:10",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,财富,成功,压力"
+          }
         },
         {
           "id": "wx-chat-1-msg-1",
@@ -212,7 +224,9 @@
           "senderId": "owner",
           "time": "2026-11-03 10:17",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,财富,成功,压力"
+          }
         },
         {
           "id": "wx-chat-1-msg-2",
@@ -220,7 +234,9 @@
           "senderId": "wx-friend-1",
           "time": "2026-11-03 10:24",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,财富,成功,压力"
+          }
         },
         {
           "id": "wx-chat-1-msg-3",
@@ -228,7 +244,9 @@
           "senderId": "owner",
           "time": "2026-11-03 10:31",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,财富,成功,压力"
+          }
         },
         {
           "id": "wx-chat-1-msg-4",
@@ -236,7 +254,9 @@
           "senderId": "wx-friend-1",
           "time": "2026-11-03 10:38",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,财富,成功,压力"
+          }
         }
       ]
     },
@@ -255,7 +275,9 @@
           "senderId": "wx-friend-2",
           "time": "2026-11-03 11:10",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "恋爱,幸福"
+          }
         },
         {
           "id": "wx-chat-2-msg-1",
@@ -263,7 +285,9 @@
           "senderId": "owner",
           "time": "2026-11-03 11:17",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "恋爱,幸福"
+          }
         },
         {
           "id": "wx-chat-2-msg-2",
@@ -271,7 +295,9 @@
           "senderId": "wx-friend-2",
           "time": "2026-11-03 11:24",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "恋爱,幸福"
+          }
         },
         {
           "id": "wx-chat-2-msg-3",
@@ -279,7 +305,9 @@
           "senderId": "owner",
           "time": "2026-11-03 11:31",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "恋爱,幸福"
+          }
         },
         {
           "id": "wx-chat-2-msg-4",
@@ -287,7 +315,9 @@
           "senderId": "wx-friend-2",
           "time": "2026-11-03 11:38",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "恋爱,幸福"
+          }
         }
       ]
     },
@@ -306,7 +336,9 @@
           "senderId": "wx-friend-3",
           "time": "2026-11-03 12:10",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "旅行,生活方式"
+          }
         },
         {
           "id": "wx-chat-3-msg-1",
@@ -314,7 +346,9 @@
           "senderId": "owner",
           "time": "2026-11-03 12:17",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "旅行,生活方式"
+          }
         },
         {
           "id": "wx-chat-3-msg-2",
@@ -322,7 +356,9 @@
           "senderId": "wx-friend-3",
           "time": "2026-11-03 12:24",
           "kind": "image",
-          "meta": {}
+          "meta": {
+            "tags": "旅行,生活方式"
+          }
         },
         {
           "id": "wx-chat-3-msg-3",
@@ -330,7 +366,9 @@
           "senderId": "owner",
           "time": "2026-11-03 12:31",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "旅行,生活方式"
+          }
         },
         {
           "id": "wx-chat-3-msg-4",
@@ -338,7 +376,9 @@
           "senderId": "wx-friend-3",
           "time": "2026-11-03 12:38",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "旅行,生活方式"
+          }
         }
       ]
     },
@@ -357,7 +397,9 @@
           "senderId": "wx-friend-4",
           "time": "2026-11-03 13:10",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折"
+          }
         },
         {
           "id": "wx-chat-4-msg-1",
@@ -365,7 +407,9 @@
           "senderId": "owner",
           "time": "2026-11-03 13:17",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折"
+          }
         },
         {
           "id": "wx-chat-4-msg-2",
@@ -373,7 +417,9 @@
           "senderId": "wx-friend-4",
           "time": "2026-11-03 13:24",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折"
+          }
         },
         {
           "id": "wx-chat-4-msg-3",
@@ -381,7 +427,9 @@
           "senderId": "owner",
           "time": "2026-11-03 13:31",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折"
+          }
         },
         {
           "id": "wx-chat-4-msg-4",
@@ -389,7 +437,9 @@
           "senderId": "wx-friend-4",
           "time": "2026-11-03 13:38",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折"
+          }
         }
       ]
     },
@@ -408,7 +458,9 @@
           "senderId": "wx-friend-5",
           "time": "2026-11-03 14:10",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,挫折"
+          }
         },
         {
           "id": "wx-chat-5-msg-1",
@@ -416,7 +468,9 @@
           "senderId": "owner",
           "time": "2026-11-03 14:17",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,挫折"
+          }
         },
         {
           "id": "wx-chat-5-msg-2",
@@ -424,7 +478,9 @@
           "senderId": "wx-friend-5",
           "time": "2026-11-03 14:24",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,挫折"
+          }
         },
         {
           "id": "wx-chat-5-msg-3",
@@ -432,7 +488,9 @@
           "senderId": "owner",
           "time": "2026-11-03 14:31",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,挫折"
+          }
         },
         {
           "id": "wx-chat-5-msg-4",
@@ -440,7 +498,9 @@
           "senderId": "wx-friend-5",
           "time": "2026-11-03 14:38",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "学业,挫折"
+          }
         }
       ]
     },
@@ -459,7 +519,9 @@
           "senderId": "wx-friend-6",
           "time": "2026-11-03 15:10",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折,财富"
+          }
         },
         {
           "id": "wx-chat-6-msg-1",
@@ -467,7 +529,9 @@
           "senderId": "owner",
           "time": "2026-11-03 15:17",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折,财富"
+          }
         },
         {
           "id": "wx-chat-6-msg-2",
@@ -475,7 +539,9 @@
           "senderId": "wx-friend-6",
           "time": "2026-11-03 15:24",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折,财富"
+          }
         },
         {
           "id": "wx-chat-6-msg-3",
@@ -484,7 +550,8 @@
           "time": "2026-11-03 15:31",
           "kind": "audio",
           "meta": {
-            "placeholder": "语音消息 12″"
+            "placeholder": "语音消息 12″",
+            "tags": "职业,挫折,财富"
           }
         },
         {
@@ -493,7 +560,9 @@
           "senderId": "wx-friend-6",
           "time": "2026-11-03 15:38",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "职业,挫折,财富"
+          }
         }
       ]
     },
@@ -512,7 +581,9 @@
           "senderId": "wx-friend-7",
           "time": "2026-11-03 16:10",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "生育,婚姻,幸福"
+          }
         },
         {
           "id": "wx-chat-7-msg-1",
@@ -520,7 +591,9 @@
           "senderId": "owner",
           "time": "2026-11-03 16:17",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "生育,婚姻,幸福"
+          }
         },
         {
           "id": "wx-chat-7-msg-2",
@@ -528,7 +601,9 @@
           "senderId": "wx-friend-7",
           "time": "2026-11-03 16:24",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "生育,婚姻,幸福"
+          }
         },
         {
           "id": "wx-chat-7-msg-3",
@@ -536,7 +611,9 @@
           "senderId": "owner",
           "time": "2026-11-03 16:31",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "生育,婚姻,幸福"
+          }
         },
         {
           "id": "wx-chat-7-msg-4",
@@ -544,7 +621,9 @@
           "senderId": "wx-friend-7",
           "time": "2026-11-03 16:38",
           "kind": "text",
-          "meta": {}
+          "meta": {
+            "tags": "生育,婚姻,幸福"
+          }
         }
       ]
     }
@@ -2018,6 +2097,168 @@
         "kind": "note",
         "meta": {
           "tags": "分析,浏览画像"
+        }
+      }
+    ],
+    "douyin": [
+      {
+        "id": "dy-video-0",
+        "title": "大厂入职第一天",
+        "body": "22岁入职互联网公司，工牌拍照留念。开心是真的，紧张也是真的。",
+        "time": "2026-11-03 11:20",
+        "sender": "阿周今天上班",
+        "kind": "video",
+        "folder": "推荐",
+        "likes": 2300,
+        "comments": [
+          "这才是真实生活。",
+          "抱抱，慢慢来。",
+          "记录得好有共鸣。"
+        ],
+        "meta": {
+          "tags": "职业,学业,成功",
+          "views": "18000",
+          "tone": "幸福与进展"
+        }
+      },
+      {
+        "id": "dy-video-1",
+        "title": "失业后的早晨",
+        "body": "被裁员一个月，今天第一次睡到自然醒。准备重新整理简历。",
+        "time": "2026-11-02 12:20",
+        "sender": "重新开始的小吴",
+        "kind": "video",
+        "folder": "推荐",
+        "likes": 4170,
+        "comments": [
+          "这才是真实生活。",
+          "抱抱，慢慢来。",
+          "记录得好有共鸣。"
+        ],
+        "meta": {
+          "tags": "职业,挫折,普通日常",
+          "views": "24200",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "dy-video-2",
+        "title": "月薪三千的一周",
+        "body": "早餐自己做，午饭带饭，周末去公园。省钱也不等于不生活。",
+        "time": "2026-11-01 13:20",
+        "sender": "月光族小敏",
+        "kind": "video",
+        "folder": "推荐",
+        "likes": 6040,
+        "comments": [
+          "这才是真实生活。",
+          "抱抱，慢慢来。",
+          "记录得好有共鸣。"
+        ],
+        "meta": {
+          "tags": "财富,普通日常,生活方式",
+          "views": "30400",
+          "tone": "普通日常"
+        }
+      },
+      {
+        "id": "dy-video-3",
+        "title": "第一次独自旅行",
+        "body": "一个人坐上去巴黎的飞机，落地后先迷路了半小时。",
+        "time": "2026-11-03 14:20",
+        "sender": "远方日记",
+        "kind": "video",
+        "folder": "推荐",
+        "likes": 7910,
+        "comments": [
+          "这才是真实生活。",
+          "抱抱，慢慢来。",
+          "记录得好有共鸣。"
+        ],
+        "meta": {
+          "tags": "旅行,生活方式",
+          "views": "36600",
+          "tone": "普通日常"
+        }
+      },
+      {
+        "id": "dy-video-4",
+        "title": "健身第180天",
+        "body": "体重没有每天都下降，但现在终于愿意走进健身房了。",
+        "time": "2026-11-02 15:20",
+        "sender": "小麦健身",
+        "kind": "video",
+        "folder": "推荐",
+        "likes": 9780,
+        "comments": [
+          "这才是真实生活。",
+          "抱抱，慢慢来。",
+          "记录得好有共鸣。"
+        ],
+        "meta": {
+          "tags": "外貌,身材,成长",
+          "views": "42800",
+          "tone": "普通日常"
+        }
+      },
+      {
+        "id": "dy-video-5",
+        "title": "宝宝第一次叫妈妈",
+        "body": "凌晨三点哄睡，听到那声妈妈突然不困了。",
+        "time": "2026-11-01 16:20",
+        "sender": "新手妈妈桃子",
+        "kind": "video",
+        "folder": "推荐",
+        "likes": 11650,
+        "comments": [
+          "这才是真实生活。",
+          "抱抱，慢慢来。",
+          "记录得好有共鸣。"
+        ],
+        "meta": {
+          "tags": "生育,婚姻,幸福",
+          "views": "49000",
+          "tone": "幸福与进展"
+        }
+      },
+      {
+        "id": "dy-video-6",
+        "title": "考研成绩出来了",
+        "body": "没过线。今天先去吃顿火锅，明天再想下一步。",
+        "time": "2026-11-03 17:20",
+        "sender": "考研搭子",
+        "kind": "video",
+        "folder": "推荐",
+        "likes": 13520,
+        "comments": [
+          "这才是真实生活。",
+          "抱抱，慢慢来。",
+          "记录得好有共鸣。"
+        ],
+        "meta": {
+          "tags": "学业,挫折",
+          "views": "55200",
+          "tone": "挫折"
+        }
+      },
+      {
+        "id": "dy-video-7",
+        "title": "周末躺平vlog",
+        "body": "睡到十点，洗衣服、点外卖、看完一部电影。普通周末存档。",
+        "time": "2026-11-02 18:20",
+        "sender": "周末不营业",
+        "kind": "video",
+        "folder": "推荐",
+        "likes": 15390,
+        "comments": [
+          "这才是真实生活。",
+          "抱抱，慢慢来。",
+          "记录得好有共鸣。"
+        ],
+        "meta": {
+          "tags": "生活方式,普通日常",
+          "views": "61400",
+          "tone": "普通日常"
         }
       }
     ]
