@@ -3,6 +3,7 @@ import { BarChart3, RotateCcw, Eye, Heart, Bookmark, Clock3, Sparkles } from "lu
 import type { Props } from "./shared";
 import { Header } from "./shared";
 import { readStudyEvents, resetStudyEvents } from "./study";
+import "./insights.css";
 
 const names: Record<string,string> = {
   redbook:"小红书", wechat:"微信", weibo:"微博", twitter:"X"
