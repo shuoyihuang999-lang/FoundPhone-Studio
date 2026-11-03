@@ -1,6 +1,7 @@
 import { NativeComposer } from "./DeviceSystem";
 import { useSkinState } from "./skinState";
 import { recordStudyEvent, useStudyTracking } from "./skins/study";
+import "./skins/insights.css";
 import { useState } from "react";
 import {
   ChevronLeft,
@@ -160,7 +161,7 @@ function MomentCard({ p, item }: { p: SkinProps; item: Item }) {
         <Avatar name={item.sender} />
         <div className="wx-moment-main">
           <strong>{item.sender}</strong>
-          <button className="wx-moment-open" onClick={() => { recordStudyEvent(p as never, "detail_open", item); p.onItem(item); }}>
+          <button className="wx-moment-open" onClick={() => { recordStudyEvent(p, "detail_open", item); p.onItem(item); }}>
             <p>{item.body}</p>
             {item.media && <ItemMedia item={item} />}
           </button>
@@ -176,7 +177,7 @@ function MomentCard({ p, item }: { p: SkinProps; item: Item }) {
 }
 
 export function WeChatSkin(p: SkinProps) {
-  useStudyTracking(p as never);
+  useStudyTracking(p);
   const [tab, setTab] = useState("微信"),
     [query, setQuery] = useState(""),
     [moments, setMoments] = useState(false),
