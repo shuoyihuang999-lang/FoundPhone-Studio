@@ -36,6 +36,15 @@
     "messages",
     "contacts",
     "photos",
+    {
+      "id": "camera",
+      "name": "相机",
+      "installed": true,
+      "visible": true,
+      "dock": true,
+      "folder": "",
+      "icon": ""
+    },
     "safari",
     "notes",
     "calendar",
