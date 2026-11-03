@@ -34,6 +34,7 @@ export function useStudyTracking(p: Props) {
     const started = Date.now();
     recordStudyEvent(latest.current, "app_open");
     const root = document.querySelector<HTMLElement>(".catalog-scroll") || document.querySelector<HTMLElement>(".wx-moments") || undefined;
+    const mutationRoot = document.querySelector<HTMLElement>(".wechat-ui") || root;
     const active = new Map<Element, { at: number; id: string; title: string; tags: string }>();
     const observer = typeof IntersectionObserver === "undefined" ? null : new IntersectionObserver((entries) => {
       for (const entry of entries) {
@@ -68,7 +69,7 @@ export function useStudyTracking(p: Props) {
         }
       });
     });
-    if (root && mutation) mutation.observe(root, { childList: true, subtree: true });
+    if (mutationRoot && mutation) mutation.observe(mutationRoot, { childList: true, subtree: true });
     return () => {
       mutation?.disconnect();
       observer?.disconnect();
