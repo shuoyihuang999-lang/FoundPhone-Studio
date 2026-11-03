@@ -72,7 +72,7 @@ export function SocialDetail(p: {
   };
   const actions = (
     <div className="post-detail-actions">
-      <button aria-label="查看评论" onClick={() => setTab("评论")}>
+      <button aria-label="查看评论" onClick={() => { setTab("评论"); recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, "comments_open", item); }}>
         <MessageCircle />
         {count(comments.length)}
       </button>
@@ -83,7 +83,7 @@ export function SocialDetail(p: {
       <button
         aria-label="喜欢帖子"
         aria-pressed={liked}
-        onClick={() => setLiked(!liked)}
+        onClick={() => { setLiked(!liked); recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, liked ? "unlike" : "like", item); }}
       >
         <Heart
           fill={liked ? "#f91880" : "none"}
@@ -94,7 +94,7 @@ export function SocialDetail(p: {
       <button
         aria-label="收藏帖子"
         aria-pressed={saved}
-        onClick={() => setSaved(!saved)}
+        onClick={() => { setSaved(!saved); recordStudyEvent({ appId: p.app, ui: p.ui, onUi: p.onUi }, saved ? "unsave" : "save", item); }}
       >
         <Bookmark fill={saved ? "currentColor" : "none"} />
         {saved ? "1" : "0"}
